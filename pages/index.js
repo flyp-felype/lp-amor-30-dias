@@ -1,7 +1,8 @@
 import Nav from '../component/Nav';
+import {Container} from './styles';
 export default function Home() {
   return (
-    <div className="container">
+    <Container>
       <main>
         <Nav></Nav>
       </main>
@@ -11,8 +12,7 @@ export default function Home() {
         body {
           padding: 0;
           background-color: #52018a;
-
-          align-items: center;
+          justify-content: center;
           margin: 0;
           font-family: 'Titillium Web', sans-serif;
         }
@@ -21,6 +21,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+    </Container>
   );
 }

@@ -1,7 +1,18 @@
 import React from 'react';
 import Logo from '../Logo';
 import Link from 'next/link';
-import {ItemNenu} from './styles';
+import {
+  ItemNenu,
+  Menu,
+  ListMenu,
+  ItemMenu,
+  Circle,
+  Social,
+  Items,
+  ItemsLink,
+  ItemsLinkMobile,
+  LogoDiv,
+} from './styles';
 
 import {
   faFacebook,
@@ -22,7 +33,12 @@ const menu = [
     link: '#',
   },
 ];
-
+const menuMobile = [
+  {
+    label: 'Escreva sua carta',
+    link: '#',
+  },
+];
 const socialMedia = [
   {
     icon: faFacebook,
@@ -43,58 +59,52 @@ const socialMedia = [
 ];
 function Nav() {
   return (
-    <nav>
-      <Logo />
-      <ul>
+    <Menu>
+      <ListMenu>
+        <Items>
+          <LogoDiv>
+            <Logo />
+          </LogoDiv>
+        </Items>
+
         {menu.map((item, index) => {
           return (
-            <li key={index}>
+            <ItemsLink key={index} className="itemLink">
               <Link href={item.link}>
                 <ItemNenu>{item.label}</ItemNenu>
               </Link>
-            </li>
+            </ItemsLink>
           );
         })}
-      </ul>
-      <ul>
-        {socialMedia.map((item, index) => {
+        {menuMobile.map((item, index) => {
           return (
-            <li key={index}>
-              <div className="circle">
-                <FontAwesomeIcon icon={item.icon} color={'#FFCC00'} />
-              </div>
-            </li>
+            <ItemsLinkMobile key={index} className="itemLink">
+              <Link href={item.link}>
+                <ItemNenu>{item.label}</ItemNenu>
+              </Link>
+            </ItemsLinkMobile>
           );
         })}
-      </ul>
-      <style jsx>{`
-        nav {
-          max-width: 1080px;
-          display: flex;
-          align-items: center;
-          flex-direction: row;
-          justify-content: space-between;
-        }
-        nav ul {
-          display: flex;
-          flex-direction: row;
-          list-style: none;
-        }
-        nav ul li {
-          padding-left: 15px;
-          padding-rigth: 15px;
-          justify-content: space-between;
-        }
-        .circle {
-          background-color: #dd1c61;
-          border-radius: 50px;
-          padding-left: 8px;
-          padding-right: 8px;
-          padding-bottom: 4px;
-          padding-top: 4px;
-        }
-      `}</style>
-    </nav>
+
+        <Items>
+          <Social>
+            {socialMedia.map((item, index) => {
+              return (
+                <ItemsLink key={index} className="itemLink">
+                  <Link href={item.link}>
+                    <ItemNenu>
+                      <Circle>
+                        <FontAwesomeIcon icon={item.icon} color={'#FFCC00'} />
+                      </Circle>
+                    </ItemNenu>
+                  </Link>
+                </ItemsLink>
+              );
+            })}
+          </Social>
+        </Items>
+      </ListMenu>
+    </Menu>
   );
 }
 
