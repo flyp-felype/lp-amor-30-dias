@@ -18,6 +18,8 @@ export const Global = createGlobalStyle`
         font-size: ${px2vw(16)};
       }
     }
+ 
+    
 `;
 
 export default Global;

@@ -11,3 +11,5 @@ export const Container = styled.div`
     flex-wrap: nowrap;
   }
 `;
+
+export const Body = styled.div``;

@@ -70,8 +70,8 @@ export const Social = styled.ul`
 `;
 
 export const ItemsLinkMobile = styled.li`
-  padding-top: ${px2vw(15)};
-  padding-left: ${px2vw(15)};
+  padding-top: ${px2vw(25)};
+  padding-left: ${px2vw(45)};
   flex-wrap: nowrap;
   @media (min-width: 1024px) {
     display: none;
@@ -90,7 +90,7 @@ export const LogoDiv = styled.div`
     width: ${px2vw(500)};
   }
   @media only screen and (max-width: 767px) {
-    width: ${px2vw(700)};
+    width: ${px2vw(600)};
   }
 `;
 768, 1023;
