@@ -4,15 +4,34 @@ import px2vw from '../../utils/px2vw';
 export const Container = styled.div`
   display: flex;
   flex-directions: row;
-  width: 100%;
   margin-top: 40px;
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+  @media (max-width: 1023px) {
+    display: none;
+  }
   justify-content: space-between;
 `;
 
+export const ContainerMobile = styled.div`
+  margin-top: 40px;
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  @media (max-width: 1023px) {
+    display: block;
+  }
+`;
 export const Title = styled.h1`
   text-align: center;
   color: #fff;
-  font-size: ${px2vw(40)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(40)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(65)};
+  }
 `;
 
 export const ButtonCallAction = styled.button`
@@ -24,7 +43,13 @@ export const ButtonCallAction = styled.button`
   border-radius: 35px;
   color: #52018a;
   font-weight: bold;
-  font-size: ${px2vw(25)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(25)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(45)};
+  }
+
   border: none;
   cursor: pointer;
 `;
@@ -44,6 +69,11 @@ export const BlocoImage = styled.div`
 
 export const Label = styled.p`
   color: #fff;
-  font-size: ${px2vw(20)};
   font-weight: 100;
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(25)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(45)};
+  }
 `;
