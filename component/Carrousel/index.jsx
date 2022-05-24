@@ -1,8 +1,8 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
-import amorEamor from '../../public/images/amorEamor.png';
-import mandaProCrush from '../../public/images/mandaProCrush.png';
-import tragoSeuAmorDeVolta from '../../public/images/tragoSeuAmorDeVolta.png';
+import amorEamor from '../../public/images/amorEamor.gif';
+import mandaProCrush from '../../public/images/mandaProCrush.gif';
+import tragoSeuAmorDeVolta from '../../public/images/tragoSeuAmorDeVolta.gif';
 import Image from 'next/image';
 import {
   Container,
