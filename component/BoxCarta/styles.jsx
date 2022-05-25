@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import px2vw from '../../utils/px2vw';
 
+import BgCartaz from '../../public/images/bg-cartaz.png';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -20,7 +21,66 @@ export const Title = styled.h1`
 
 export const Carta = styled.div`
   width: 100%;
-  height: ${px2vw(500)};
   background-color: #fff;
   border-radius: ${px2vw(15)};
+  padding: ${px2vw(50)};
+`;
+
+export const BgImage = styled.div`
+  width: 100%;
+  height: 100%;
+  background-image: url(${BgCartaz.src});
+  background-repeat: repeat-y;
+  background-size: contain;
+`;
+export const CartaInterior = styled.div`
+  width: 100%;
+  height: auto;
+  border: 1px solid #b6b6b6;
+  padding: ${px2vw(50)};
+`;
+
+export const TextArea = styled.textarea`
+  width: 100%;
+  border: none;
+  min-height: 350px;
+  height: auto;
+  overflow: hidden;
+  color: #666666;
+  font-size: 18px;
+  font-family: 'Patrick Hand', cursive;
+  font-weight: 100;
+  background: transparent;
+  &:focus {
+    outline: none;
+    border: none;
+  }
+`;
+
+export const Box = styled.div`
+  margin-bottom: 20px;
+  width: 100%;
+`;
+
+export const LabelData = styled.span`
+  color: #666666;
+  font-size: 18px;
+  font-family: 'Patrick Hand', cursive;
+`;
+
+export const SubTitle = styled.h1`
+  text-align: center;
+  color: #52018a;
+
+  font-size: 25px;
+`;
+
+export const BoxFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`;
+
+export const GifFooter = styled.div`
+  width: 25%;
 `;

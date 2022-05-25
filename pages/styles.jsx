@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   margin: ${px2vw(10)};
-  max-width: 100%;
+  max-width: 1900px;
 
   @media (min-width: 1024px) {
     flex-wrap: nowrap;

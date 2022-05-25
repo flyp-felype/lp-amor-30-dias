@@ -4,6 +4,7 @@ import Banner from '../component/Banner';
 import Carrousel from '../component/Carrousel';
 import CallAction from '../component/CallAction';
 import BoxCarta from '../component/BoxCarta';
+
 export default function Home() {
   return (
     <>
