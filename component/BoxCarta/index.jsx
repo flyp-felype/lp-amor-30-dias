@@ -12,6 +12,9 @@ import {
   SubTitle,
   BoxFooter,
   GifFooter,
+  ButtonFinalizar,
+  TextButtonFinalizar,
+  ContainerButton,
 } from './styles';
 
 import InputText from '../InputText';
@@ -92,6 +95,11 @@ um has been the industry's standard dummy text ever since the 1500s, when an unk
             </BoxFooter>
           </BgImage>
         </CartaInterior>
+        <ContainerButton>
+          <ButtonFinalizar>
+            <TextButtonFinalizar>Finalizar carta!</TextButtonFinalizar>
+          </ButtonFinalizar>
+        </ContainerButton>
       </Carta>
     </Container>
   );
