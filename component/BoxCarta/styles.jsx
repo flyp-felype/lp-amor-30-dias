@@ -16,7 +16,12 @@ export const Container = styled.div`
 export const Title = styled.h1`
   text-align: center;
   color: #fff;
-  font-size: ${px2vw(30)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(30)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(50)};
+  }
 `;
 
 export const Carta = styled.div`

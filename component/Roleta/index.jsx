@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Wheel} from './Roulette';
 import {makeStyles, Modal} from '@material-ui/core';
-import {Container, Coluna, Title} from './styles';
+import {Container, Coluna, Title, Coluna2, Card} from './styles';
 import {getRandomInt} from '../../utils/rolete';
 const mockData = {
   1: '1 Libra',
@@ -83,6 +83,9 @@ function Roleta() {
           />
         </div>
       </Coluna>
+      <Coluna2>
+        <Card></Card>
+      </Coluna2>
     </Container>
   );
 }
