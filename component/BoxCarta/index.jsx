@@ -72,7 +72,7 @@ um has been the industry's standard dummy text ever since the 1500s, when an unk
                 id={'destinatário'}
                 label={'[destinatário]'}
                 variant={'standard'}
-                style={{width: 110}}
+                style={{width: 130}}
               />
               <LabelData>,{dataAtual}</LabelData>
             </Box>

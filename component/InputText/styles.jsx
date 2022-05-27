@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import px2vw from '../../utils/px2vw';
 
 export const Input = styled.input`
   font-family: 'Patrick Hand', cursive !important;
   border: none;
-  font-size: 20px;
+
+  font-size: ${px2vw(18)};
 
   background: transparent;
   color: #666666;

@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   @media (min-width: 1024px) {
     flex-wrap: nowrap;
-    width: ${px2vw(1180)};
+    width: ${px2vw(1024)};
   }
 `;
 
@@ -29,6 +29,7 @@ export const Carta = styled.div`
   background-color: #fff;
   border-radius: ${px2vw(15)};
   padding: ${px2vw(50)};
+  max-width: ${px2vw(1000)};
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.34);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.34);
 `;
@@ -50,11 +51,11 @@ export const CartaInterior = styled.div`
 export const TextArea = styled.textarea`
   width: 100%;
   border: none;
-  min-height: 350px;
+  min-height: ${px2vw(370)};
   height: auto;
   overflow: hidden;
   color: #666666;
-  font-size: 18px;
+  font-size: ${px2vw(18)};
   font-family: 'Patrick Hand', cursive;
   font-weight: 100;
   background: transparent;
@@ -71,7 +72,7 @@ export const Box = styled.div`
 
 export const LabelData = styled.span`
   color: #666666;
-  font-size: 18px;
+  font-size: ${px2vw(18)};
   font-family: 'Patrick Hand', cursive;
 `;
 
@@ -94,6 +95,7 @@ export const GifFooter = styled.div`
 
 export const TextButtonFinalizar = styled.span`
   color: #fff;
+  font-size: ${px2vw(15)};
 `;
 
 export const ButtonFinalizar = styled.button`
@@ -122,5 +124,6 @@ export const ContainerButton = styled.div`
 export const CheckBox = styled.div`
   font-family: 'Patrick Hand', cursive;
   color: #666666;
-  margin-top: 20px;
+  margin-top: ${px2vw(20)};
+  font-size: ${px2vw(18)};
 `;

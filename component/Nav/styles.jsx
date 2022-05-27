@@ -53,9 +53,9 @@ export const ItemsLink = styled.li`
 
 export const Circle = styled.div`
   background-color: #dd1c61;
-  border-radius: 50px;
-  padding-left: 8px;
-  padding-right: 8px;
+  border-radius: ${px2vw(50)};
+  padding-left: ${px2vw(8)};
+  padding-right: ${px2vw(8)};
   padding-bottom: 4px;
   padding-top: 4px;
 `;
