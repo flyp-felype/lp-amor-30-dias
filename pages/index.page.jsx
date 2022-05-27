@@ -101,7 +101,7 @@ export default function Home() {
           position: relative;
           margin: 0;
           font-family: 'Titillium Web', sans-serif;
-
+          min-width: fit-content;
           scrollbar-color: #52018a;
         }
 
