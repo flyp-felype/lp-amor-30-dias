@@ -103,6 +103,7 @@ export default function Home() {
           font-family: 'Titillium Web', sans-serif;
           width: 100vw;
           scrollbar-color: #52018a;
+          overflow-x: hidden;
         }
 
         * {

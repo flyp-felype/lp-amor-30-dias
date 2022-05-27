@@ -31,8 +31,8 @@ export const Carta = styled.div`
   padding: ${px2vw(50)};
   margin-top: ${px2vw(20)};
   max-width: ${px2vw(1000)};
-  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.34);
-  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.34);
+  -webkit-box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.1);
 `;
 
 export const BgImage = styled.div`
