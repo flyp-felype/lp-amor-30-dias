@@ -1,3 +1,3 @@
 module.exports = {
-  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
+  pageExtensions: ['index.tsx', 'index.ts', 'index.jsx', 'index.js'],
 };
