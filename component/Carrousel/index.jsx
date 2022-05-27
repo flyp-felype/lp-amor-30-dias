@@ -11,7 +11,15 @@ import {
   CarouselDesktop,
   Circle,
   Pointer,
+  ItemImage,
 } from './styles';
+import {Swiper, SwiperSlide} from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import {Pagination} from 'swiper';
 
 function Carrousel() {
   const items = [
@@ -22,31 +30,23 @@ function Carrousel() {
   return (
     <Container>
       <CarouselMobile>
-        <Carousel
-          itemsToShow={1}
-          renderPagination={({pages, activePage, onClick}) => {
-            return (
-              <Circle>
-                {pages.map((page) => {
-                  const isActivePage = activePage === page;
-                  console.log('isActivePage ', isActivePage);
-                  return (
-                    <Pointer
-                      key={page}
-                      onClick={() => onClick(page)}
-                      active={isActivePage}
-                    />
-                  );
-                })}
-              </Circle>
-            );
-          }}>
+        <Swiper
+          slidesPerView={'auto'}
+          centeredSlides={true}
+          spaceBetween={0}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper">
           {items.map((item) => (
-            <Item key={item.id}>
-              <Image src={item.image} alt={item.title} />
-            </Item>
+            <SwiperSlide key={item.id} className="swiper-slide">
+              <ItemImage>
+                <Image src={item.image} alt={item.title} />
+              </ItemImage>
+            </SwiperSlide>
           ))}
-        </Carousel>
+        </Swiper>
       </CarouselMobile>
 
       <CarouselDesktop>

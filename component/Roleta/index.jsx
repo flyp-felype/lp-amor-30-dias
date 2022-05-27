@@ -66,10 +66,10 @@ function Roleta() {
         </Title>
         <div
           style={{
+            marginLeft: 40,
             width: '30em',
             height: '30em',
-            margin: '0 auto',
-            marginTop: '5em',
+            marginTop: '20px',
             position: 'relative',
           }}
           onClick={handleSpinClick}>
@@ -83,9 +83,6 @@ function Roleta() {
           />
         </div>
       </Coluna>
-      <Coluna2>
-        <Card></Card>
-      </Coluna2>
     </Container>
   );
 }

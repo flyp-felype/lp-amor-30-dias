@@ -44,9 +44,9 @@ const itensCupos = [
 function Cupons() {
   return (
     <Container>
-      {itensCupos.map((item) => {
+      {itensCupos.map((item, index) => {
         return (
-          <Item width={item.width}>
+          <Item width={item.width} key={index}>
             <Title>
               <BigTitle>{item.desconto} </BigTitle>
               {item.title}

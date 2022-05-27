@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   @media (min-width: 1024px) {
     flex-wrap: nowrap;
-    width: ${px2vw(1024)};
+    width: ${px2vw(1180)};
   }
 `;
 
@@ -102,9 +102,25 @@ export const ButtonFinalizar = styled.button`
   padding: 15px;
   border: none;
   margin-top: 40px;
+  width: 200px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
 `;
 
 export const ContainerButton = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const CheckBox = styled.div`
+  font-family: 'Patrick Hand', cursive;
+  color: #666666;
+  margin-top: 20px;
 `;

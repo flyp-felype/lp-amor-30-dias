@@ -2,10 +2,17 @@ import styled from 'styled-components';
 import px2vw from '../../utils/px2vw';
 
 export const Container = styled.div`
-  @media (min-width: 1024px) {
-    height: ${px2vw(500)};
-  }
+  display: flex;
+  justify-content: center;
+`;
+
+export const ImgLogo = styled.div`
   @media (max-width: 1023px) {
-    height: ${px2vw(1000)};
+    width: 70%;
   }
+  @media (min-width: 1024px) {
+    width: 500px;
+  }
+
+  margin-top: 50px;
 `;

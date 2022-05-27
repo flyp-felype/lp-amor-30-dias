@@ -11,10 +11,10 @@ export const ItemNenu = styled.a`
 `;
 
 export const Menu = styled.nav`
-  margin-top: ${px2vw(20)};
+  margin-top: ${px2vw(40)};
   @media (min-width: 1024px) {
     flex-wrap: nowrap;
-    width: ${px2vw(1024)};
+    width: ${px2vw(1180)};
   }
 `;
 
@@ -71,7 +71,8 @@ export const Social = styled.ul`
 
 export const ItemsLinkMobile = styled.li`
   padding-top: ${px2vw(25)};
-  padding-left: ${px2vw(45)};
+  padding-left: ${px2vw(40)};
+  padding-rigth: ${px2vw(20)};
   flex-wrap: nowrap;
   @media (min-width: 1024px) {
     display: none;
@@ -88,9 +89,11 @@ export const LogoDiv = styled.div`
 
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
     width: ${px2vw(500)};
+    padding-left: 20px;
   }
   @media only screen and (max-width: 767px) {
     width: ${px2vw(600)};
+    padding-left: 20px;
   }
 `;
 768, 1023;

@@ -15,6 +15,7 @@ import {
   ButtonFinalizar,
   TextButtonFinalizar,
   ContainerButton,
+  CheckBox,
 } from './styles';
 
 import InputText from '../InputText';
@@ -96,6 +97,12 @@ um has been the industry's standard dummy text ever since the 1500s, when an unk
           </BgImage>
         </CartaInterior>
         <ContainerButton>
+          <CheckBox>
+            <input type="checkbox" /> Concordo que o conteúdo dessa cartinha não
+            possui vínculos diretos com a Zema e que também não há nenhum tipo
+            de mensagem ofensiva para o destinário e/ou envolvidos na operação
+            de envio.
+          </CheckBox>
           <ButtonFinalizar>
             <TextButtonFinalizar>Finalizar carta!</TextButtonFinalizar>
           </ButtonFinalizar>

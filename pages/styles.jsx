@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import px2vw from '../utils/px2vw';
-
+import BgMarcia from '../public/images/bg-marcia.png';
+import BgMobile from '../public/images/bg-mobile-marcia.png';
+import BgSigno from '../public/images/signo-bg.png';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin: ${px2vw(10)};
+
+  position: relative;
   max-width: 1900px;
 
   @media (min-width: 1024px) {
@@ -16,9 +19,23 @@ export const Body = styled.div``;
 
 export const ContainerClear = styled.div`
   background-color: #fafafa;
+  background-image: url(${BgSigno.src});
+  background-repeat: no-repeat;
+  background-position: bottom left;
   width: 100%;
+  padding-bototm: 150px;
   margin-top: -100px;
   padding-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+export const ContainerSecondeClear = styled.div`
+  background-color: #fafafa;
+  padding-bottom: 50px;
+  width: 100%;
+  padding-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,9 +49,11 @@ export const Traco = styled.div`
 `;
 
 export const Corpo = styled.div`
+  margin-bottom: 50px;
   @media (min-width: 1024px) {
     flex-wrap: nowrap;
-    width: ${px2vw(1024)};
+
+    width: ${px2vw(1180)};
   }
   justify-content: center;
   flex-direction: column;
@@ -54,4 +73,47 @@ export const Title = styled.h2`
 
 export const Coluna = styled.div`
   width: 50%;
+
+  position: relative;
+`;
+
+export const ContainerBG = styled.div`
+  @media (min-width: 1024px) {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url(${BgMarcia.src});
+  }
+  @media (max-width: 1023px) {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url(${BgMobile.src});
+  }
+  background-position: center top;
+  margin: 0;
+`;
+
+export const Footer = styled.div`
+  background-color: #dd1c61;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+`;
+
+export const IntFooter = styled.div`
+  @media (min-width: 1024px) {
+    flex-wrap: nowrap;
+    width: ${px2vw(1180)};
+  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const IconImage = styled.div`
+  width: 303px;
+  height: 19px;
+  margin-top: 10px;
 `;

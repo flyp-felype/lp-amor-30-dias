@@ -4,11 +4,13 @@ import px2vw from '../../utils/px2vw';
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  position: relative;
   padding-top: 30px;
 `;
 
 export const Title = styled.h2`
   text-align: center;
+  padding-right: 100px;
   color: #878787;
   margin: 0px;
   @media (min-width: 1024px) {

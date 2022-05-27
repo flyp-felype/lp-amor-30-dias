@@ -18,8 +18,28 @@ export const CarouselDesktop = styled.div`
   @media (max-width: 1023px) {
     display: none;
   }
+  margin-top: 530px;
 `;
+
+export const ItemImage = styled.div`
+  text-align: center;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+`;
+
 export const CarouselMobile = styled.div`
+  margin-top: 280px;
   @media (min-width: 1024px) {
     display: none;
   }
