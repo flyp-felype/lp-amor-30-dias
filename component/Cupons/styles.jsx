@@ -13,7 +13,7 @@ export const Item = styled.div`
     width: ${(props) => (props.width ? props.width + '%' : '40%')};
   }
   @media (min-width: 1024px) {
-    width: ${(props) => (props.width ? props.width + '%' : '30%')};
+    width: ${(props) => (props.width ? props.width + '%' : '25%')};
   }
   margin-left: 10px;
   margin-right: 10px;
@@ -33,7 +33,7 @@ export const Title = styled.span`
     font-size: ${px2vw(35)};
   }
   @media (min-width: 1024px) {
-    font-size: ${px2vw(15)};
+    font-size: ${px2vw(12)};
   }
 `;
 
