@@ -29,6 +29,7 @@ export const Carta = styled.div`
   background-color: #fff;
   border-radius: ${px2vw(15)};
   padding: ${px2vw(50)};
+  margin-top: ${px2vw(20)};
   max-width: ${px2vw(1000)};
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.34);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.34);
