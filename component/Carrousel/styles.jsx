@@ -12,13 +12,16 @@ export const Item = styled.div`
 `;
 
 export const CarouselDesktop = styled.div`
-  @media (min-width: 1024px) {
+  @media (min-width: 1024px) and (max-width: 1899px) {
     display: block;
+    margin-top: 530px;
   }
   @media (max-width: 1023px) {
     display: none;
   }
-  margin-top: 530px;
+  @media (min-width: 1900px) {
+    margin-top: 700px;
+  }
 `;
 
 export const ItemImage = styled.div`

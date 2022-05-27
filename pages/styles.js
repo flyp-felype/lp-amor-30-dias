@@ -6,7 +6,6 @@ import BgSigno from '../public/images/signo-bg.png';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-
   position: relative;
   max-width: 1900px;
 
@@ -81,14 +80,18 @@ export const ContainerBG = styled.div`
   @media (min-width: 1024px) {
     background-size: 100%;
     background-repeat: no-repeat;
+
+    background-position: center top;
     background-image: url(${BgMarcia.src});
+  }
+  @media (min-width: 1900px) {
+    height: 1843px;
   }
   @media (max-width: 1023px) {
     background-size: 100%;
     background-repeat: no-repeat;
     background-image: url(${BgMobile.src});
   }
-  background-position: center top;
   margin: 0;
 `;
 

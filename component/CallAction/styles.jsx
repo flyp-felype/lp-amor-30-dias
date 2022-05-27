@@ -4,7 +4,8 @@ import px2vw from '../../utils/px2vw';
 export const Container = styled.div`
   display: flex;
   flex-directions: row;
-  margin-top: 40px;
+  margin-top: ${px2vw(40)};
+  margin-bottom: ${px2vw(40)};
   @media (min-width: 1024px) {
     display: flex;
   }
@@ -15,7 +16,7 @@ export const Container = styled.div`
 `;
 
 export const ContainerMobile = styled.div`
-  margin-top: 40px;
+  margin-top: ${px2vw(40)};
   @media (min-width: 1024px) {
     display: none;
   }
@@ -37,6 +38,8 @@ export const Title = styled.h1`
 export const ButtonCallAction = styled.button`
   padding-bottom: 10px;
   padding-top: 10px;
+  margin-bottom: ${px2vw(25)};
+  margin-top: ${px2vw(25)};
   text-align: center;
   width: 80%;
   background-color: #ffcc00;

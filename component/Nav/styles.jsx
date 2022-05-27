@@ -5,6 +5,7 @@ export const ItemNenu = styled.a`
   cursor: pointer;
   font-family: 'Titillium Web', sans-serif;
   font-weight: bold;
+  font-size: ${px2vw(18)};
   &:hover {
     text-decoration: underline;
   }
@@ -14,7 +15,7 @@ export const Menu = styled.nav`
   margin-top: ${px2vw(40)};
   @media (min-width: 1024px) {
     flex-wrap: nowrap;
-    width: ${px2vw(1180)};
+    width: ${px2vw(900)};
   }
 `;
 

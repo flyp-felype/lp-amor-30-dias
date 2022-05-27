@@ -10,9 +10,12 @@ export const ImgLogo = styled.div`
   @media (max-width: 1023px) {
     width: 70%;
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 1024px) and (max-width: 1899px) {
     width: 500px;
   }
 
+  @media (min-width: 1900px) {
+    width: 700px;
+  }
   margin-top: 50px;
 `;
