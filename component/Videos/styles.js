@@ -32,3 +32,21 @@ export const ImageVideo = styled.div`
   width: 388px;
   height: 218px;
 `;
+
+export const VideoDesktop = styled.div`
+  @media (min-width: 1024px) {
+    display: block;
+  }
+  @media (max-width: 1023px) {
+    display: none;
+  }
+`;
+
+export const VideoMobile = styled.div`
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  @media (max-width: 1023px) {
+    display: block;
+  }
+`;

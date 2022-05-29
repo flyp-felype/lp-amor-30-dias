@@ -31,7 +31,7 @@ function CallAction() {
             Inicie um belo romance agora!
           </Title>
 
-          <ButtonCallAction>
+          <ButtonCallAction href="#carta">
             <Image
               src={Vector}
               width={20}

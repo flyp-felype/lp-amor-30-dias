@@ -35,12 +35,13 @@ export const Title = styled.h1`
   }
 `;
 
-export const ButtonCallAction = styled.button`
+export const ButtonCallAction = styled.a`
   padding-bottom: 10px;
   padding-top: 10px;
   margin-bottom: ${px2vw(25)};
   margin-top: ${px2vw(25)};
   text-align: center;
+  text-decoration: none;
   width: 80%;
   background-color: #ffcc00;
   border-radius: 35px;
@@ -52,7 +53,12 @@ export const ButtonCallAction = styled.button`
   @media (max-width: 1023px) {
     font-size: ${px2vw(45)};
   }
-
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
   border: none;
   cursor: pointer;
 `;
@@ -60,6 +66,8 @@ export const ButtonCallAction = styled.button`
 export const Text = styled.label`
   margin-left: 10px;
   vertical-align: text-top;
+
+  cursor: pointer;
 `;
 
 export const BlocoImage = styled.div`

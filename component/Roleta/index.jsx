@@ -59,19 +59,24 @@ function Roleta() {
   const [mustSpin, setMustSpin] = useState(false);
   const [couponNum, setCouponNum] = useState(1);
   const [signo, setSigno] = useState(1);
+  const [pedding, setPedding] = useState(false);
 
   const handleSpinClick = () => {
-    let newCouponNum = getRandomInt(1, 12);
-    if (newCouponNum === signo) {
-      newCouponNum = getRandomInt(1, 12);
-    }
-    console.log(newCouponNum);
-    setCouponNum(newCouponNum);
-    setTimeout(() => {
-      setSigno(newCouponNum);
-    }, START_SPINNING_TIME + CONTINUE_SPINNING_TIME + STOP_SPINNING_TIME - 300);
+    if (!pedding) {
+      setPedding(true);
+      let newCouponNum = getRandomInt(1, 12);
+      if (newCouponNum === signo) {
+        newCouponNum = getRandomInt(1, 12);
+      }
+      console.log(newCouponNum);
+      setCouponNum(newCouponNum);
+      setTimeout(() => {
+        setPedding(false);
+        setSigno(newCouponNum);
+      }, START_SPINNING_TIME + CONTINUE_SPINNING_TIME + STOP_SPINNING_TIME - 300);
 
-    setMustSpin(true);
+      setMustSpin(true);
+    }
   };
   const handleOpen = () => {};
   return (

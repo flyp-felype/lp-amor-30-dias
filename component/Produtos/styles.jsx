@@ -5,17 +5,36 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-weight: 400;
   color: #878787;
+  margin: 0px;
   @media (min-width: 1024px) {
     font-size: ${px2vw(30)};
   }
   @media (max-width: 1023px) {
-    font-size: ${px2vw(50)};
+    font-size: ${px2vw(80)};
+    text-align: center;
   }
 `;
 
 export const ProdutosContainer = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+export const CarroselDesktop = styled.div`
+  @media (min-width: 1024px) {
+    display: block;
+  }
+  @media (max-width: 1023px) {
+    display: none;
+  }
+`;
+
+export const CarroselMobile = styled.div`
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  @media (max-width: 1023px) {
+    display: block;
+  }
 `;

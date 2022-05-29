@@ -119,4 +119,7 @@ export const IconImage = styled.div`
   width: 303px;
   height: 19px;
   margin-top: 10px;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;

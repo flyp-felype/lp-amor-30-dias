@@ -26,17 +26,17 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 const menu = [
   {
     label: 'Escreva sua carta',
-    link: '#',
+    link: '#carta',
   },
   {
     label: 'Ofertas Especiais',
-    link: '#',
+    link: '#produtos',
   },
 ];
 const menuMobile = [
   {
     label: 'Escreva sua carta',
-    link: '#',
+    link: '#carta',
   },
 ];
 const socialMedia = [

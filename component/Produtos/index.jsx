@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {Container, Title} from './styles';
+import {Container, Title, CarroselDesktop, CarroselMobile} from './styles';
 import ItemProdutos from '../ItemProdutos';
 import Brastremp from '../../public/images/produtos/brastremp.png';
 import {Swiper, SwiperSlide} from 'swiper/react';
-
+import Carousel from 'react-elastic-carousel';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -65,27 +65,22 @@ const produtos = [
 ];
 function Produtos() {
   return (
-    <Container>
+    <Container id="produtos">
       <Title>Encontre o presente que tem a cara do benzinho</Title>
-      <Swiper
-        modules={[Pagination, Scrollbar]}
-        slidesPerView={'auto'}
-        spaceBetween={20}
-        slidesPerView={4}
-        scrollbar={{draggable: true}}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper">
-        {produtos.map((item, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <ItemProdutos produto={item}></ItemProdutos>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      <CarroselDesktop>
+        <Carousel showArrows={false} itemPosition={'START'} itemsToShow={4}>
+          {produtos.map((item, index) => {
+            return <ItemProdutos produto={item}></ItemProdutos>;
+          })}
+        </Carousel>
+      </CarroselDesktop>
+      <CarroselMobile>
+        <Carousel showArrows={false} itemPosition={'CENTER'} itemsToShow={1}>
+          {produtos.map((item, index) => {
+            return <ItemProdutos produto={item}></ItemProdutos>;
+          })}
+        </Carousel>
+      </CarroselMobile>
     </Container>
   );
 }
