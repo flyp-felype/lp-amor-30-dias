@@ -17,7 +17,6 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   text-align: center;
-
   color: #878787;
   margin: 0px;
   @media (min-width: 1024px) and (max-width: 1989px) {
@@ -28,7 +27,7 @@ export const Title = styled.h2`
     padding-right: ${px2vw(280)};
   }
   @media (max-width: 1023px) {
-    font-size: ${px2vw(50)};
+    font-size: ${px2vw(80)};
   }
 `;
 
@@ -45,8 +44,9 @@ export const Coluna2 = styled.div`
     width: 40%;
   }
   @media (max-width: 1023px) {
-    width: 100%;
+    width: 80%;
   }
+  align-self: center;
 `;
 export const Card = styled.div`
   width: 100%;
@@ -107,7 +107,10 @@ export const RotationContainer = styled.div`
 `;
 
 export const RoletaBig = styled.div`
-  @media (max-width: 1899px) {
+  @media (max-width: 1023px) {
+    display: none;
+  }
+  @media (min-width: 1024px) and (max-width: 1899px) {
     display: none;
   }
 
@@ -116,8 +119,24 @@ export const RoletaBig = styled.div`
   }
 `;
 
+export const RoletaSmall = styled.div`
+  @media (max-width: 1023px) {
+    display: block;
+  }
+  @media (min-width: 1024px) and (max-width: 1899px) {
+    display: none;
+  }
+
+  @media (min-width: 1900px) {
+    display: none;
+  }
+`;
+
 export const RoletaNormal = styled.div`
-  @media (max-width: 1899px) {
+  @media (max-width: 1023px) {
+    display: none;
+  }
+  @media (min-width: 1024px) and (max-width: 1899px) {
     display: block;
   }
 
@@ -127,7 +146,10 @@ export const RoletaNormal = styled.div`
 `;
 
 export const FlagBig = styled.div`
-  @media (max-width: 1899px) {
+  @media (max-width: 1023px) {
+    display: none;
+  }
+  @media (min-width: 1024px) and (max-width: 1899px) {
     display: none;
   }
 
@@ -137,8 +159,23 @@ export const FlagBig = styled.div`
 `;
 
 export const FlagNormal = styled.div`
-  @media (max-width: 1899px) {
+  @media (max-width: 1023px) {
+    display: none;
+  }
+  @media (min-width: 1024px) and (max-width: 1899px) {
     display: block;
+  }
+
+  @media (min-width: 1900px) {
+    display: none;
+  }
+`;
+export const FlagSmall = styled.div`
+  @media (max-width: 1023px) {
+    display: block;
+  }
+  @media (min-width: 1024px) and (max-width: 1899px) {
+    display: none;
   }
 
   @media (min-width: 1900px) {

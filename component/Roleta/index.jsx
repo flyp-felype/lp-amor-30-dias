@@ -8,6 +8,7 @@ import {
   Coluna2,
   RoletaNormal,
   RoletaBig,
+  RoletaSmall,
 } from './styles';
 import Signos from '../Signos';
 import {getRandomInt} from '../../utils/rolete';
@@ -123,6 +124,26 @@ function Roleta() {
             />
           </div>
         </RoletaNormal>
+        <RoletaSmall>
+          <div
+            style={{
+              marginLeft: 40,
+              width: '20em',
+              height: '20em',
+              marginTop: '20px',
+              position: 'relative',
+            }}
+            onClick={handleSpinClick}>
+            <Wheel
+              mustStartSpinning={mustSpin}
+              prizeNumber={couponNum}
+              onStopSpinning={() => {
+                setMustSpin(false);
+                handleOpen();
+              }}
+            />
+          </div>
+        </RoletaSmall>
       </Coluna>
       <Coluna2>
         <Signos signo={signo}></Signos>

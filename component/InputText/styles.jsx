@@ -4,9 +4,12 @@ import px2vw from '../../utils/px2vw';
 export const Input = styled.input`
   font-family: 'Patrick Hand', cursive !important;
   border: none;
-
-  font-size: ${px2vw(18)};
-
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(18)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(38)};
+  }
   background: transparent;
   color: #666666;
   ::placeholder,

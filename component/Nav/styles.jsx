@@ -5,7 +5,12 @@ export const ItemNenu = styled.a`
   cursor: pointer;
   font-family: 'Titillium Web', sans-serif;
   font-weight: bold;
-  font-size: ${px2vw(18)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(18)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(48)};
+  }
   &:hover {
     text-decoration: underline;
   }

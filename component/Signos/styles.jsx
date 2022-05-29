@@ -27,7 +27,13 @@ export const Header = styled.div`
 
 export const Title = styled.h3`
   font-weight: 300;
-  font-size: ${px2vw(35)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(35)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(110)};
+  }
+
   color: #878787;
   margin-let: ${px2vw(20)};
   margin-bottom: ${px2vw(20)};
@@ -42,8 +48,14 @@ export const Traco = styled.div`
   width: 100%;
   background-color: #52018a;
   height: 1px;
-  margin-top: ${px2vw(20)};
-  margin-bottom: ${px2vw(40)};
+  @media (min-width: 1024px) {
+    margin-top: ${px2vw(20)};
+    margin-bottom: ${px2vw(40)};
+  }
+  @media (max-width: 1023px) {
+    margin-top: ${px2vw(80)};
+    margin-bottom: ${px2vw(100)};
+  }
 `;
 
 export const Corpo = styled.div`
@@ -62,40 +74,67 @@ export const Combina = styled.span`
   width: auto;
   padding-right: ${px2vw(20)};
   color: #878787;
-  font-size: ${px2vw(20)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(20)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(60)};
+  }
   flex-wrap: wrap;
 `;
 
 export const SignoCombina = styled.div`
   display: flex;
   flex-direction: row;
+  align-self: center;
   margin-bottom: ${px2vw(15)};
   width: 50%;
 `;
 
 export const IconCombina = styled.div`
-  width: ${px2vw(30)};
+  @media (min-width: 1024px) {
+    width: ${px2vw(30)};
+  }
+  @media (max-width: 1023px) {
+    width: ${px2vw(80)};
+  }
   margin-right: ${px2vw(10)};
 `;
 
 export const SignosCombina = styled.div`
   display: flex;
   justify-content: center;
+  align-self: center;
   flex-direction: row;
   margin-top: ${px2vw(40)};
   flex-wrap: wrap;
-  width: 100%;
+  @media (min-width: 1024px) {
+    width: 100%;
+  }
+  @media (max-width: 1023px) {
+    width: auto;
+  }
 `;
 export const TextSigno = styled.text`
   color: #878787;
-  font-size: ${px2vw(20)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(18)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(70)};
+  }
 `;
 
 export const ItemDescricao = styled.div`
   color: #878787;
   width: 100%;
   margin-bottom: ${px2vw(20)};
-  font-size: ${px2vw(15)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(15)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(50)};
+  }
   font-weight: 100;
 `;
 
