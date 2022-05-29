@@ -1,7 +1,14 @@
 import React, {useState} from 'react';
 import {Wheel} from './Roulette';
 import {makeStyles, Modal} from '@material-ui/core';
-import {Container, Coluna, Title, Coluna2, Card} from './styles';
+import {
+  Container,
+  Coluna,
+  Title,
+  Coluna2,
+  RoletaNormal,
+  RoletaBig,
+} from './styles';
 import Signos from '../Signos';
 import {getRandomInt} from '../../utils/rolete';
 const mockData = {
@@ -19,6 +26,9 @@ const mockData = {
   12: '12 Virgem!',
 };
 
+const START_SPINNING_TIME = 800;
+const CONTINUE_SPINNING_TIME = 400;
+const STOP_SPINNING_TIME = 4000;
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -47,11 +57,19 @@ function Roleta() {
   const classes = useStyles();
   const [mustSpin, setMustSpin] = useState(false);
   const [couponNum, setCouponNum] = useState(1);
+  const [signo, setSigno] = useState(1);
 
   const handleSpinClick = () => {
-    const newCouponNum = getRandomInt(1, 12);
+    let newCouponNum = getRandomInt(1, 12);
+    if (newCouponNum === signo) {
+      newCouponNum = getRandomInt(1, 12);
+    }
     console.log(newCouponNum);
     setCouponNum(newCouponNum);
+    setTimeout(() => {
+      setSigno(newCouponNum);
+    }, START_SPINNING_TIME + CONTINUE_SPINNING_TIME + STOP_SPINNING_TIME - 300);
+
     setMustSpin(true);
   };
   const handleOpen = () => {};
@@ -65,27 +83,49 @@ function Roleta() {
           <br />
           com o seu!
         </Title>
-        <div
-          style={{
-            marginLeft: 40,
-            width: '30em',
-            height: '30em',
-            marginTop: '20px',
-            position: 'relative',
-          }}
-          onClick={handleSpinClick}>
-          <Wheel
-            mustStartSpinning={mustSpin}
-            prizeNumber={couponNum}
-            onStopSpinning={() => {
-              setMustSpin(false);
-              handleOpen();
+        <RoletaBig>
+          <div
+            style={{
+              marginLeft: 40,
+              width: '50em',
+              height: '50em',
+              marginTop: '20px',
+              position: 'relative',
             }}
-          />
-        </div>
+            onClick={handleSpinClick}>
+            <Wheel
+              mustStartSpinning={mustSpin}
+              prizeNumber={couponNum}
+              onStopSpinning={() => {
+                setMustSpin(false);
+                handleOpen();
+              }}
+            />
+          </div>
+        </RoletaBig>
+        <RoletaNormal>
+          <div
+            style={{
+              marginLeft: 40,
+              width: '30em',
+              height: '30em',
+              marginTop: '20px',
+              position: 'relative',
+            }}
+            onClick={handleSpinClick}>
+            <Wheel
+              mustStartSpinning={mustSpin}
+              prizeNumber={couponNum}
+              onStopSpinning={() => {
+                setMustSpin(false);
+                handleOpen();
+              }}
+            />
+          </div>
+        </RoletaNormal>
       </Coluna>
       <Coluna2>
-        <Signos></Signos>
+        <Signos signo={signo}></Signos>
       </Coluna2>
     </Container>
   );

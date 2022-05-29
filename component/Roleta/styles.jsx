@@ -3,9 +3,16 @@ import px2vw from '../../utils/px2vw';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: row;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+  @media (max-width: 1023px) {
+    flex-direction: column;
+  }
   position: relative;
   padding-top: 30px;
+  justify-content: center;
 `;
 
 export const Title = styled.h2`
@@ -96,5 +103,45 @@ export const RotationContainer = styled.div`
     to {
       transform: rotate(${(props) => 1440 + props.finalRotationDegrees}deg);
     }
+  }
+`;
+
+export const RoletaBig = styled.div`
+  @media (max-width: 1899px) {
+    display: none;
+  }
+
+  @media (min-width: 1900px) {
+    display: block;
+  }
+`;
+
+export const RoletaNormal = styled.div`
+  @media (max-width: 1899px) {
+    display: block;
+  }
+
+  @media (min-width: 1900px) {
+    display: none;
+  }
+`;
+
+export const FlagBig = styled.div`
+  @media (max-width: 1899px) {
+    display: none;
+  }
+
+  @media (min-width: 1900px) {
+    display: block;
+  }
+`;
+
+export const FlagNormal = styled.div`
+  @media (max-width: 1899px) {
+    display: block;
+  }
+
+  @media (min-width: 1900px) {
+    display: none;
   }
 `;

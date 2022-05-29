@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {getRotationDegrees} from '../../utils/rolete';
-import {RotationContainer} from './styles';
+import {RotationContainer, FlagBig, FlagNormal} from './styles';
 
 import RouleteImg from '../../public/images/roleta.png';
 import Marcador from '../../public/images/marcador.png';
@@ -84,17 +84,32 @@ export const Wheel = ({
           }}
         />
       </RotationContainer>
-      <img
-        src={Marcador.src}
-        alt="marker"
-        style={{
-          position: 'absolute',
-          width: '3em',
-          left: '13.5em',
-          top: '-1em',
-          zIndex: 2,
-        }}
-      />
+      <FlagBig>
+        <img
+          src={Marcador.src}
+          alt="marker"
+          style={{
+            position: 'absolute',
+            width: '3em',
+            left: '25.5em',
+            top: '-1em',
+            zIndex: 2,
+          }}
+        />
+      </FlagBig>
+      <FlagNormal>
+        <img
+          src={Marcador.src}
+          alt="marker"
+          style={{
+            position: 'absolute',
+            width: '3em',
+            left: '13.5em',
+            top: '-1em',
+            zIndex: 2,
+          }}
+        />
+      </FlagNormal>
     </>
   );
 };

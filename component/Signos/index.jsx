@@ -1,18 +1,33 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
-import {Container} from './styles';
-import Aquario from '../../public/images/aquarius.png';
-import Aries from '../../public/images/aries.png';
-import Cancer from '../../public/images/cancer.png';
-import Capricornio from '../../public/images/capricornio.png';
-import Escorpiao from '../../public/images/escorpiao.png';
-import Gemeos from '../../public/images/gemeos.png';
-import Leao from '../../public/images/leao.png';
-import Libra from '../../public/images/libra.png';
-import Peixes from '../../public/images/peixes.png';
-import Sagitario from '../../public/images/sagitario.png';
-import Touro from '../../public/images/touro.png';
-import Virgem from '../../public/images/virgem.png';
+import {
+  Container,
+  Header,
+  Title,
+  IconSigno,
+  Traco,
+  Corpo,
+  Combina,
+  SignoCombina,
+  IconCombina,
+  SignosCombina,
+  TextSigno,
+  ItemDescricao,
+  Color,
+} from './styles';
+import Aquario from '../../public/images/signos/aquarius.png';
+import Aries from '../../public/images/signos/aries.png';
+import Cancer from '../../public/images/signos/cancer.png';
+import Capricornio from '../../public/images/signos/capricornio.png';
+import Escorpiao from '../../public/images/signos/escorpiao.png';
+import Gemeos from '../../public/images/signos/gemeos.png';
+import Leao from '../../public/images/signos/leao.png';
+import Libra from '../../public/images/signos/libra.png';
+import Peixes from '../../public/images/signos/peixes.png';
+import Sagitario from '../../public/images/signos/sagitario.png';
+import Touro from '../../public/images/signos/touro.png';
+import Virgem from '../../public/images/signos/virgem.png';
+import Image from 'next/image';
 
 const itensSignos = [
   {
@@ -141,8 +156,54 @@ const itensSignos = [
     combina: [7, 3, 5],
   },
 ];
-function Signos(index = 1) {
-  return <Container></Container>;
+function Signos(signo = 1) {
+  const [signoSelect, setSignoSelect] = useState();
+  useEffect(() => {
+    console.log('signo ', signo.signo);
+    if (signo) {
+      setSignoSelect(itensSignos.find((x) => x.id === signo.signo));
+    }
+  }, [signo]);
+  return signoSelect ? (
+    <Container>
+      <Header>
+        <IconSigno>
+          <Image src={signoSelect.icone} layout="responsive" quality={100} />
+        </IconSigno>
+
+        <Title>{signoSelect.signo}</Title>
+      </Header>
+      <Traco />
+      <Corpo>
+        <Combina>Combina com</Combina>
+        <SignosCombina>
+          {signoSelect.combina.map((item, index) => {
+            const itemSigno = itensSignos.find((x) => x.id === item);
+            return (
+              <SignoCombina key={index}>
+                <IconCombina>
+                  <Image src={itemSigno.icone} quality={100} />
+                </IconCombina>
+                <TextSigno>{itemSigno.signo}</TextSigno>
+              </SignoCombina>
+            );
+          })}
+        </SignosCombina>
+      </Corpo>
+      <Traco />
+      <Corpo>
+        <ItemDescricao>
+          <Color>1.</Color> {signoSelect.descricao}
+        </ItemDescricao>
+        <ItemDescricao>
+          <Color>2.</Color> {signoSelect.descricao2}
+        </ItemDescricao>
+        <ItemDescricao>
+          <Color>3.</Color> {signoSelect.descricao3}
+        </ItemDescricao>
+      </Corpo>
+    </Container>
+  ) : null;
 }
 
 export default Signos;
