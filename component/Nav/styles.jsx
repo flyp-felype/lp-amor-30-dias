@@ -76,9 +76,6 @@ export const Social = styled.ul`
 `;
 
 export const ItemsLinkMobile = styled.li`
-  padding-top: ${px2vw(25)};
-  padding-left: ${px2vw(40)};
-  padding-rigth: ${px2vw(20)};
   flex-wrap: nowrap;
   @media (min-width: 1024px) {
     display: none;

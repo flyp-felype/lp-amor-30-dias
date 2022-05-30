@@ -39,15 +39,16 @@ function ItemProdutos({produto}) {
     <Container>
       <Header>
         <TagOff>
-          <Image src={Tag} style={{marginTop: 6}} />
+          <Image src={Tag} style={{marginTop: 6}} quality={100} />
           <LabelTag>{produto.off}</LabelTag>
         </TagOff>
       </Header>
       <ImageProduto>
         <TagFrete>
-          <Image src={Frete} /> <LabelTagFrete>{produto.frete}</LabelTagFrete>
+          <Image src={Frete} quality={100} />{' '}
+          <LabelTagFrete>{produto.frete}</LabelTagFrete>
         </TagFrete>
-        <Image src={produto.image} />
+        <Image src={produto.image} quality={100} />
       </ImageProduto>
       <BoxDescricao>
         <HeaderDescricao>

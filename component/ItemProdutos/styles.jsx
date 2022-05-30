@@ -9,6 +9,7 @@ export const Container = styled.div`
   background-color: #fff;
   padding: 20px;
   margin-top: 10px;
+  margin-bottom: 20px;
 `;
 export const Header = styled.div`
   display: flex;

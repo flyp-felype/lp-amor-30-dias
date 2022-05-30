@@ -13,11 +13,15 @@ export const Title = styled.h2`
   text-align: center;
   color: #878787;
   margin: 0px;
-  @media (min-width: 1024px) {
+  @media (min-width: 1024px) and (max-width: 1989px) {
     font-size: ${px2vw(30)};
+    padding-right: ${px2vw(130)};
+  }
+  @media (min-width: 1900px) {
+    padding-right: ${px2vw(280)};
   }
   @media (max-width: 1023px) {
-    font-size: ${px2vw(50)};
+    font-size: ${px2vw(80)};
   }
 `;
 
@@ -29,8 +33,14 @@ export const ItensVideos = styled.div`
 `;
 
 export const ImageVideo = styled.div`
-  width: 388px;
-  height: 218px;
+  @media (min-width: 1024px) {
+    width: 388px;
+    height: 218px;
+  }
+  @media (max-width: 1023px) {
+    width: 100%;
+    height: 218px;
+  }
 `;
 
 export const VideoDesktop = styled.div`
@@ -40,13 +50,22 @@ export const VideoDesktop = styled.div`
   @media (max-width: 1023px) {
     display: none;
   }
+  margin-top: ${px2vw(40)};
 `;
 
 export const VideoMobile = styled.div`
+  @media (min-width: 1024px) {
+    display: block;
+    width: 100%;
+  }
+  @media (max-width: 1023px) {
+    display: none;
+  }
   @media (min-width: 1024px) {
     display: none;
   }
   @media (max-width: 1023px) {
     display: block;
   }
+  margin-top: ${px2vw(40)};
 `;

@@ -75,7 +75,7 @@ function Produtos() {
         </Carousel>
       </CarroselDesktop>
       <CarroselMobile>
-        <Carousel showArrows={false} itemPosition={'CENTER'} itemsToShow={1}>
+        <Carousel showArrows={false} itemsToShow={1}>
           {produtos.map((item, index) => {
             return <ItemProdutos produto={item}></ItemProdutos>;
           })}

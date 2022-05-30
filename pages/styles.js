@@ -18,7 +18,9 @@ export const Body = styled.div``;
 
 export const ContainerClear = styled.div`
   background-color: #fafafa;
-  background-image: url(${BgSigno.src});
+  @media (min-width: 1024px) {
+    background-image: url(${BgSigno.src});
+  }
   background-repeat: no-repeat;
   background-position: bottom left;
   width: 100%;
