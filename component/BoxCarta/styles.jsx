@@ -102,11 +102,11 @@ export const TextArea = styled.textarea`
   color: #666666;
   @media (min-width: 1024px) {
     font-size: ${px2vw(18)};
-    min-height: ${px2vw(370)};
+    min-height: ${px2vw(570)};
   }
   @media (max-width: 1023px) {
     font-size: ${px2vw(38)};
-    min-height: ${px2vw(970)};
+    min-height: ${px2vw(1070)};
   }
   font-family: 'Patrick Hand', cursive;
   font-weight: 100;

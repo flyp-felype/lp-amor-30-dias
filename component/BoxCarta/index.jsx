@@ -387,32 +387,34 @@ function BoxCarta() {
                 />
                 <LabelData>,{dataAtual}</LabelData>
               </Box>
-              {cartaFinalizada ? (
-                <>
-                  <Box style={{marginTop: 100}} ref={carta}>
-                    <SubTitle>
-                      Alguém especial deixou essas surpresinhas aqui
-                      <br />
-                      pra você... acesse o site e aproveite!
-                    </SubTitle>
-                  </Box>
-                  <BoxFooter>
-                    <GifFooter>
-                      <Image
-                        src={DeuMatch}
-                        alt="Deu Match Zema"
-                        layout="responsive"
-                      />
-                      <Image
-                        src={FooterZema}
-                        width={172}
-                        style={{paddingLeft: 20}}
-                      />
-                    </GifFooter>
-                    <Cupons />
-                  </BoxFooter>
-                </>
-              ) : null}
+              <div ref={carta}>
+                {cartaFinalizada ? (
+                  <>
+                    <Box style={{marginTop: 100}}>
+                      <SubTitle>
+                        Alguém especial deixou essas surpresinhas aqui
+                        <br />
+                        pra você... acesse o site e aproveite!
+                      </SubTitle>
+                    </Box>
+                    <BoxFooter>
+                      <GifFooter>
+                        <Image
+                          src={DeuMatch}
+                          alt="Deu Match Zema"
+                          layout="responsive"
+                        />
+                        <Image
+                          src={FooterZema}
+                          width={172}
+                          style={{paddingLeft: 20}}
+                        />
+                      </GifFooter>
+                      <Cupons />
+                    </BoxFooter>
+                  </>
+                ) : null}
+              </div>
             </BgImage>
           </CartaInterior>
           <ContainerButton>
