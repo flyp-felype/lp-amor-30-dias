@@ -8,6 +8,7 @@ import {
   Corpo,
   Title,
   ContainerSecondeClear,
+  CorpoRetorno,
   Footer,
   IntFooter,
   IconImage,
@@ -47,13 +48,6 @@ export default function Home() {
         <BoxCarta />
       </Container>
       <ContainerClear>
-        {/* <Traco />
-        <Corpo>
-          <Title>
-            Agora é onde você confirma seus dados e do destinatário para que
-            possamos enviar sua cartinha de forma correta e segura:
-          </Title>
-        </Corpo> */}
         <Traco />
         <Corpo>
           <Roleta />

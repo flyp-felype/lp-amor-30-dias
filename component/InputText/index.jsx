@@ -1,7 +1,7 @@
 import React from 'react';
 import {Input} from './styles';
 
-function InputText({id, label, type, style}) {
+function InputText({id, label, type, style, value, onChange}) {
   return (
     <Input
       id={id}
@@ -9,6 +9,8 @@ function InputText({id, label, type, style}) {
       type={type}
       placeholder={label}
       style={style}
+      value={value}
+      onChange={onChange}
     />
   );
 }

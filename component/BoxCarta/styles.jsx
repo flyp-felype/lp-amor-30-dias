@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import px2vw from '../../utils/px2vw';
 
 import BgCartaz from '../../public/images/bg-cartaz.png';
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -11,6 +12,31 @@ export const Container = styled.div`
     flex-wrap: nowrap;
     width: ${px2vw(1024)};
   }
+`;
+export const ContainerClear = styled.div`
+  background-color: #fafafa;
+
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  width: 100vw;
+  margin-top: -100px;
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const CorpoRetorno = styled.div`
+  @media (min-width: 1024px) {
+    flex-wrap: nowrap;
+
+    width: ${px2vw(1024)};
+  }
+  margin-top: ${px2vw(50)};
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Title = styled.h1`
@@ -24,9 +50,21 @@ export const Title = styled.h1`
   }
 `;
 
+export const TitleEx = styled.h1`
+  text-align: center;
+
+  color: #878787;
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(30)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(50)};
+  }
+`;
 export const Carta = styled.div`
   width: 100%;
   background-color: #fff;
+  z-index: 999;
   border-radius: ${px2vw(15)};
   padding: ${px2vw(50)};
   margin-top: ${px2vw(20)};
@@ -51,6 +89,11 @@ export const CartaInterior = styled.div`
   padding: ${px2vw(50)};
 `;
 
+export const Traco = styled.div`
+  width: 80%;
+  height: 1px;
+  background-color: #e3deda;
+`;
 export const TextArea = styled.textarea`
   width: 100%;
   border: none;
@@ -125,6 +168,7 @@ export const ButtonFinalizar = styled.button`
   margin-top: 40px;
   width: 200px;
   cursor: pointer;
+  opacity: ${(props) => (props.disabled ? 0.7 : 1)};
   &:hover {
     opacity: 0.8;
   }
@@ -141,13 +185,98 @@ export const ContainerButton = styled.div`
 `;
 
 export const CheckBox = styled.div`
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Titillium Web', sans-serif;
   color: #666666;
   margin-top: ${px2vw(20)};
   @media (min-width: 1024px) {
-    font-size: ${px2vw(18)};
+    font-size: ${px2vw(15)};
   }
   @media (max-width: 1023px) {
-    font-size: ${px2vw(38)};
+    font-size: ${px2vw(30)};
   }
+`;
+
+export const Formularios = styled.div`
+  width: 100%;
+  margin-top: 50px;
+`;
+
+export const CorpoForm = styled.div`
+  width: 47%;
+  background-color: #7f11c8;
+  margin-right: 3%;
+  border-radius: 15px;
+  padding: ${px2vw(40)};
+  float: left;
+`;
+export const CorpoForm2 = styled.div`
+  width: 47%;
+  background-color: #7f11c8;
+  margin-left: 3%;
+  border-radius: 15px;
+  padding: ${px2vw(40)};
+  float: left;
+  z-index: 9;
+`;
+
+export const TitleForm = styled.h3`
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  vertical-align: baseline;
+  font-size: ${px2vw(28)};
+  margin-left: ${px2vw(50)};
+`;
+
+export const Quadrado = styled.div`
+  width: 7px;
+  height: 7px;
+  background-color: #ffcc00;
+  margin-top: ${px2vw(25)};
+  margin-right: ${px2vw(5)};
+`;
+
+export const Input = styled.input`
+  background-color: ${(props) => (props.disabled ? '#dbd9d9' : '#fff')};
+  border-radius: 5px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: ${px2vw(17)};
+  width: 100%;
+  padding: 20px;
+  margin-bottom: ${px2vw(10)};
+  margin-top: ${px2vw(10)};
+  border: none;
+  color: #666666;
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #666666;
+  }
+  ::d,
+  ::-webkit-input-placeholder {
+    color: #666666;
+  }
+  &:focus {
+    outline: none;
+    border: none;
+  }
+`;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const Box60 = styled.div`
+  width: 53%;
+`;
+export const Box40 = styled.div`
+  width: 40%;
+`;
+
+export const BottonCarta = styled.div`
+  width: 414px;
+  height: 304px;
+  float: right;
+  margin-top: -9 0px;
 `;

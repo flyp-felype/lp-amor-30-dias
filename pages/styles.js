@@ -24,9 +24,7 @@ export const ContainerClear = styled.div`
   background-repeat: no-repeat;
   background-position: bottom left;
   width: 100%;
-  padding-bototm: 150px;
-  margin-top: -100px;
-  padding-top: 150px;
+  padding-bottom: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,17 +57,6 @@ export const Corpo = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-`;
-
-export const Title = styled.h2`
-  text-align: center;
-  color: #878787;
-  @media (min-width: 1024px) {
-    font-size: ${px2vw(30)};
-  }
-  @media (max-width: 1023px) {
-    font-size: ${px2vw(50)};
-  }
 `;
 
 export const Coluna = styled.div`
