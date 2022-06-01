@@ -162,7 +162,9 @@ export const TextButtonFinalizar = styled.span`
 
 export const ButtonFinalizar = styled.button`
   background-color: #dd1c61;
+  position: relative;
   border-radius: 5px;
+  z-index: 99999;
   padding: 15px;
   border: none;
   margin-top: 40px;
@@ -199,24 +201,43 @@ export const CheckBox = styled.div`
 export const Formularios = styled.div`
   width: 100%;
   margin-top: 50px;
+  @media (max-width: 1023px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const CorpoForm = styled.div`
-  width: 47%;
+  @media (min-width: 1024px) {
+    width: 47%;
+    margin-right: 3%;
+    border-radius: 15px;
+    padding: ${px2vw(40)};
+    float: left;
+  }
+  @media (max-width: 1023px) {
+    width: 100%;
+    padding: ${px2vw(90)};
+  }
+
   background-color: #7f11c8;
-  margin-right: 3%;
-  border-radius: 15px;
-  padding: ${px2vw(40)};
-  float: left;
 `;
 export const CorpoForm2 = styled.div`
-  width: 47%;
+  @media (min-width: 1024px) {
+    width: 47%;
+    margin-right: 3%;
+    border-radius: 15px;
+    padding: ${px2vw(40)};
+    float: left;
+    z-index: 99;
+  }
+  @media (max-width: 1023px) {
+    width: 100%;
+    padding: ${px2vw(90)};
+  }
   background-color: #7f11c8;
-  margin-left: 3%;
-  border-radius: 15px;
-  padding: ${px2vw(40)};
-  float: left;
-  z-index: 9;
 `;
 
 export const TitleForm = styled.h3`
@@ -224,7 +245,12 @@ export const TitleForm = styled.h3`
   display: flex;
   flex-direction: row;
   vertical-align: baseline;
-  font-size: ${px2vw(28)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(28)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(88)};
+  }
   margin-left: ${px2vw(50)};
 `;
 
@@ -232,7 +258,12 @@ export const Quadrado = styled.div`
   width: 7px;
   height: 7px;
   background-color: #ffcc00;
-  margin-top: ${px2vw(25)};
+  @media (min-width: 1024px) {
+    margin-top: ${px2vw(25)};
+  }
+  @media (max-width: 1023px) {
+    margin-top: ${px2vw(76)};
+  }
   margin-right: ${px2vw(5)};
 `;
 
@@ -240,11 +271,18 @@ export const Input = styled.input`
   background-color: ${(props) => (props.disabled ? '#dbd9d9' : '#fff')};
   border-radius: 5px;
   font-family: 'Titillium Web', sans-serif;
-  font-size: ${px2vw(17)};
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(17)};
+    margin-bottom: ${px2vw(10)};
+    margin-top: ${px2vw(10)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(47)};
+    margin-bottom: ${px2vw(20)};
+    margin-top: ${px2vw(20)};
+  }
   width: 100%;
   padding: 20px;
-  margin-bottom: ${px2vw(10)};
-  margin-top: ${px2vw(10)};
   border: none;
   color: #666666;
   ::placeholder,
@@ -275,8 +313,17 @@ export const Box40 = styled.div`
 `;
 
 export const BottonCarta = styled.div`
-  width: 414px;
-  height: 304px;
   float: right;
-  margin-top: -9 0px;
+  @media (min-width: 1024px) {
+    margin-top: -90px;
+    width: 414px;
+    height: 304px;
+  }
+  @media (max-width: 1023px) {
+    margin-top: 10px;
+    width: 314px;
+    height: 204px;
+  }
+
+  z-index: 9;
 `;

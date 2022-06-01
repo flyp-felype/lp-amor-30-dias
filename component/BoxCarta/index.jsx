@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 
 import {
   Container,
@@ -70,27 +70,199 @@ function BoxCarta() {
 
   const [cartaPreenchida, setcartaPreenchida] = useState(false);
 
-  const [disableDest, setDisableDest] = useState(true);
+  const [rAceito, setRaceito] = useState(false);
+  const [dAceito, setDaceito] = useState(false);
 
+  const [disableDest, setDisableDest] = useState(true);
+  const cadastro = useRef(null);
+  const carta = useRef(null);
   useEffect(() => {
     setDataAtual(dayjs().locale('pt-br').format('DD [de] MMMM [de] YYYY'));
   }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (rNome === '') {
+      toast.error('Nome do remetente é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (rEndereco === '') {
+      toast.error('Endereço do remetente é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (rTelefone === '') {
+      toast.error('Telefone do remetente é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (rNumero === '') {
+      toast.error('Número do remetente é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (rCep === '') {
+      toast.error('CEP do remetente é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (rBairro === '') {
+      toast.error('Bairro do remetente é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (rAceito === false) {
+      toast.error('Obrigatório aceitar os termos de compromisso do Remetente', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
     setDisableDest(false);
   };
   const handleSubmitDestinatario = (event) => {
     event.preventDefault();
+    if (dNome === '') {
+      toast.error('Nome do destinatário é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (dEndereco === '') {
+      toast.error('Endereço do destinatário é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (dBairro === '') {
+      toast.error('Bairro do destinatário é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (dNumero === '') {
+      toast.error('Número do destinatário é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (dCep === '') {
+      toast.error('CEP do destinatário é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    toast.success('Carta enviada com sucesso!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    setRemetente('');
+    setDestinatario('');
+    setMsgCarta(corpoCarta);
+    setRnome('');
+    setRendereco('');
+    setRbairro('');
+    setRcep('');
+    setRnumero('');
+    setRemail('');
+    setDnome('');
+    setDendereco('');
+    setDaceito(false);
+    setRaceito(false);
+    setDbairro('');
+    setDcep('');
+    setAceitocarta(false);
+    setcartaPreenchida(false);
   };
 
   const handleCarta = (event) => {
-    console.log('aaa');
-
     event.preventDefault();
 
     if (remetente === '') {
-      toast.warn('É preciso preencher o remetente', {
+      toast.error('É preciso preencher o remetente', {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -102,7 +274,7 @@ function BoxCarta() {
       return;
     }
     if (destinatario === '') {
-      toast.warn('É preciso preencher o destinatário', {
+      toast.error('É preciso preencher o destinatário', {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -114,7 +286,7 @@ function BoxCarta() {
       return;
     }
     if (msgCart === corpoCarta) {
-      toast.warn('É preciso preencher a carta', {
+      toast.error('É preciso preencher a carta', {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -126,7 +298,7 @@ function BoxCarta() {
       return;
     }
     if (aceitoCarta === false) {
-      toast.warn('É preciso aceitar os termos de compromisso', {
+      toast.error('É preciso aceitar os termos de compromisso', {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -138,10 +310,7 @@ function BoxCarta() {
       return;
     }
     setcartaPreenchida(true);
-    const tesNode = ReactDOM.findDOMNode(this.refs.test);
-    if (some_logic) {
-      window.scrollTo(0, tesNode.offsetTop);
-    }
+    cadastro.current.scrollIntoView({behavior: 'smooth'});
   };
 
   return (
@@ -165,7 +334,7 @@ function BoxCarta() {
       </Title>
       <Carta>
         <form onSubmit={handleCarta}>
-          <CartaInterior>
+          <CartaInterior ref={carta}>
             <BgImage>
               <Box>
                 <InputText
@@ -263,7 +432,7 @@ function BoxCarta() {
           </ContainerButton>
         </form>
       </Carta>
-      <ContainerClear>
+      <ContainerClear ref={cadastro}>
         {cartaPreenchida ? (
           <>
             <Traco />
@@ -336,6 +505,11 @@ function BoxCarta() {
                     <input
                       type="checkbox"
                       id="aceitoR"
+                      onChange={(e) => {
+                        console.log(e.target.checked);
+                        setRaceito(e.target.checked);
+                      }}
+                      checked={rAceito}
                       style={{marginRight: 10}}
                     />
                     <label htmlFor="aceitoR" style={{color: '#FFF'}}>
@@ -345,7 +519,7 @@ function BoxCarta() {
                     </label>
                     <br />
                     <ButtonFinalizar>
-                      <TextButtonFinalizar>Cadastrar</TextButtonFinalizar>
+                      <TextButtonFinalizar>Continuar</TextButtonFinalizar>
                     </ButtonFinalizar>
                   </form>
                 </CorpoForm>
@@ -400,6 +574,11 @@ function BoxCarta() {
                     <input
                       type="checkbox"
                       id="aceitoD"
+                      onChange={(e) => {
+                        console.log(e.target.checked);
+                        setDaceito(e.target.checked);
+                      }}
+                      checked={dAceito}
                       disabled={disableDest}
                       style={{marginRight: 10}}
                     />
