@@ -66,7 +66,7 @@ export const Carta = styled.div`
   background-color: #fff;
   z-index: 999;
   border-radius: ${px2vw(15)};
-  padding: ${px2vw(50)};
+  padding: ${px2vw(20)} ${px2vw(50)} ${px2vw(50)} ${px2vw(50)};
   margin-top: ${px2vw(20)};
   @media (min-width: 1024px) {
     max-width: ${px2vw(1000)};

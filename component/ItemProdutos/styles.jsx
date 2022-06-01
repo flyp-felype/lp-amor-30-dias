@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 257px;
+  width: 247px;
   height: 480px;
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
     5px 7px 22px 1px rgba(0, 0, 0, 0);

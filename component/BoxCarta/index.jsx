@@ -41,11 +41,10 @@ import Cupons from '../Cupons';
 import EnviarCarta from '../../public/images/enviar-carta.png';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import px2vw from '../../utils/px2vw';
 require('dayjs/locale/pt-br');
 
-const corpoCarta = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's \n
-standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy \n
-um has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy te`;
+const corpoCarta = `Escreva aqui sua carta...`;
 function BoxCarta() {
   const [msgCart, setMsgCarta] = useState(corpoCarta);
 
@@ -72,6 +71,8 @@ function BoxCarta() {
 
   const [rAceito, setRaceito] = useState(false);
   const [dAceito, setDaceito] = useState(false);
+
+  const [cartaFinalizada, setCartaFinalizada] = useState(false);
 
   const [disableDest, setDisableDest] = useState(true);
   const cadastro = useRef(null);
@@ -256,6 +257,9 @@ function BoxCarta() {
     setDcep('');
     setAceitocarta(false);
     setcartaPreenchida(false);
+    setCartaFinalizada(true);
+
+    carta.current.scrollIntoView({behavior: 'smooth'});
   };
 
   const handleCarta = (event) => {
@@ -334,7 +338,16 @@ function BoxCarta() {
       </Title>
       <Carta>
         <form onSubmit={handleCarta}>
-          <CartaInterior ref={carta}>
+          <p
+            style={{
+              fontFamily: 'Titillium Web, sans-serif;',
+              textAlign: 'center',
+              fontSize: px2vw(20),
+              color: '#878787',
+            }}>
+            Escreva sua cartinha
+          </p>
+          <CartaInterior>
             <BgImage>
               <Box>
                 <InputText
@@ -374,28 +387,32 @@ function BoxCarta() {
                 />
                 <LabelData>,{dataAtual}</LabelData>
               </Box>
-              <Box style={{marginTop: 100}}>
-                <SubTitle>
-                  Alguém especial deixou essas surpresinhas aqui
-                  <br />
-                  pra você... acesse o site e aproveite!
-                </SubTitle>
-              </Box>
-              <BoxFooter>
-                <GifFooter>
-                  <Image
-                    src={DeuMatch}
-                    alt="Deu Match Zema"
-                    layout="responsive"
-                  />
-                  <Image
-                    src={FooterZema}
-                    width={172}
-                    style={{paddingLeft: 20}}
-                  />
-                </GifFooter>
-                <Cupons />
-              </BoxFooter>
+              {cartaFinalizada ? (
+                <>
+                  <Box style={{marginTop: 100}} ref={carta}>
+                    <SubTitle>
+                      Alguém especial deixou essas surpresinhas aqui
+                      <br />
+                      pra você... acesse o site e aproveite!
+                    </SubTitle>
+                  </Box>
+                  <BoxFooter>
+                    <GifFooter>
+                      <Image
+                        src={DeuMatch}
+                        alt="Deu Match Zema"
+                        layout="responsive"
+                      />
+                      <Image
+                        src={FooterZema}
+                        width={172}
+                        style={{paddingLeft: 20}}
+                      />
+                    </GifFooter>
+                    <Cupons />
+                  </BoxFooter>
+                </>
+              ) : null}
             </BgImage>
           </CartaInterior>
           <ContainerButton>

@@ -1,6 +1,12 @@
 import React from 'react';
 
-import {Container, Title, CarroselDesktop, CarroselMobile} from './styles';
+import {
+  Container,
+  Title,
+  CarroselDesktop,
+  CarroselMobile,
+  CarroselBig,
+} from './styles';
 import ItemProdutos from '../ItemProdutos';
 import Brastremp from '../../public/images/produtos/brastremp.png';
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -62,11 +68,92 @@ const produtos = [
     dividido: 'ou em até 10x de R$ 219,00 s/ juros',
     star: 5,
   },
+  {
+    off: '15% OFF',
+    image: Brastremp,
+    frete: 'Frete Grátis',
+    title: 'Geladeira/Refrigerador Brastemp Frost Free Evox 350L...',
+    price: 'R$2.599,00',
+    priceDiscount: 'R$2.199,00',
+    dividido: 'ou em até 10x de R$ 219,00 s/ juros',
+    star: 5,
+  },
+  {
+    off: '15% OFF',
+    image: Brastremp,
+    frete: 'Frete Grátis',
+    title: 'Geladeira/Refrigerador Brastemp Frost Free Evox 350L...',
+    price: 'R$2.599,00',
+    priceDiscount: 'R$2.199,00',
+    dividido: 'ou em até 10x de R$ 219,00 s/ juros',
+    star: 3,
+  },
+  {
+    off: '15% OFF',
+    image: Brastremp,
+    frete: 'Frete Grátis',
+    title: 'Geladeira/Refrigerador Brastemp Frost Free Evox 350L...',
+    price: 'R$2.599,00',
+    priceDiscount: 'R$2.199,00',
+    dividido: 'ou em até 10x de R$ 219,00 s/ juros',
+    star: 4,
+  },
+  {
+    off: '15% OFF',
+    image: Brastremp,
+    frete: 'Frete Grátis',
+    title: 'Geladeira/Refrigerador Brastemp Frost Free Evox 350L...',
+    price: 'R$2.599,00',
+    priceDiscount: 'R$2.199,00',
+    dividido: 'ou em até 10x de R$ 219,00 s/ juros',
+    star: 2,
+  },
+  {
+    off: '15% OFF',
+    image: Brastremp,
+    frete: 'Frete Grátis',
+    title: 'Geladeira/Refrigerador Brastemp Frost Free Evox 350L...',
+    price: 'R$2.599,00',
+    priceDiscount: 'R$2.199,00',
+    dividido: 'ou em até 10x de R$ 219,00 s/ juros',
+    star: 4,
+  },
+  {
+    off: '15% OFF',
+    image: Brastremp,
+    frete: 'Frete Grátis',
+    title: 'Geladeira/Refrigerador Brastemp Frost Free Evox 350L...',
+    price: 'R$2.599,00',
+    priceDiscount: 'R$2.199,00',
+    dividido: 'ou em até 10x de R$ 219,00 s/ juros',
+    star: 5,
+  },
+  {
+    off: '15% OFF',
+    image: Brastremp,
+    frete: 'Frete Grátis',
+    title: 'Geladeira/Refrigerador Brastemp Frost Free Evox 350L...',
+    price: 'R$2.599,00',
+    priceDiscount: 'R$2.199,00',
+    dividido: 'ou em até 10x de R$ 219,00 s/ juros',
+    star: 5,
+  },
 ];
 function Produtos() {
   return (
     <Container id="produtos">
       <Title>Encontre o presente que tem a cara do benzinho</Title>
+      <CarroselBig>
+        <Carousel
+          itemsToScroll={6}
+          showArrows={false}
+          itemPosition={'START'}
+          itemsToShow={6}>
+          {produtos.map((item, index) => {
+            return <ItemProdutos produto={item}></ItemProdutos>;
+          })}
+        </Carousel>
+      </CarroselBig>
       <CarroselDesktop>
         <Carousel showArrows={false} itemPosition={'START'} itemsToShow={4}>
           {produtos.map((item, index) => {

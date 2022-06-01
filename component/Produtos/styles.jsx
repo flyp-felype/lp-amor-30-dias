@@ -22,19 +22,37 @@ export const ProdutosContainer = styled.div`
 `;
 
 export const CarroselDesktop = styled.div`
-  @media (min-width: 1024px) {
+  @media (min-width: 1024px) and (max-width: 1899px) {
     display: block;
   }
   @media (max-width: 1023px) {
     display: none;
   }
+  @media (min-width: 1900px) {
+    display: none;
+  }
 `;
 
 export const CarroselMobile = styled.div`
-  @media (min-width: 1024px) {
+  @media (min-width: 1024px) and (max-width: 1899px) {
     display: none;
   }
   @media (max-width: 1023px) {
+    display: block;
+  }
+  @media (min-width: 1900px) {
+    display: none;
+  }
+`;
+
+export const CarroselBig = styled.div`
+  @media (min-width: 1024px) and (max-width: 1899px) {
+    display: none;
+  }
+  @media (max-width: 1023px) {
+    display: none;
+  }
+  @media (min-width: 1900px) {
     display: block;
   }
 `;

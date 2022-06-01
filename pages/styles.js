@@ -74,7 +74,7 @@ export const ContainerBG = styled.div`
     background-image: url(${BgMarcia.src});
   }
   @media (min-width: 1900px) {
-    height: 1843px;
+    height: 1473px;
   }
   @media (max-width: 1023px) {
     background-size: 100%;

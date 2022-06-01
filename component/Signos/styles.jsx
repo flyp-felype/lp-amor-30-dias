@@ -135,7 +135,7 @@ export const ItemDescricao = styled.div`
   @media (max-width: 1023px) {
     font-size: ${px2vw(50)};
   }
-  font-weight: 100;
+  font-weight: normal;
 `;
 
 export const Color = styled.span`

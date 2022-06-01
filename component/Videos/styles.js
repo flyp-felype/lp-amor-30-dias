@@ -13,12 +13,11 @@ export const Title = styled.h2`
   text-align: center;
   color: #878787;
   margin: 0px;
+  line-height: 1.2;
   @media (min-width: 1024px) and (max-width: 1989px) {
     font-size: ${px2vw(30)};
-    padding-right: ${px2vw(130)};
   }
   @media (min-width: 1900px) {
-    padding-right: ${px2vw(280)};
   }
   @media (max-width: 1023px) {
     font-size: ${px2vw(80)};

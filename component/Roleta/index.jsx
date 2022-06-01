@@ -58,7 +58,7 @@ function Roleta() {
   const classes = useStyles();
   const [mustSpin, setMustSpin] = useState(false);
   const [couponNum, setCouponNum] = useState(1);
-  const [signo, setSigno] = useState(1);
+  const [signo, setSigno] = useState();
   const [pedding, setPedding] = useState(false);
 
   const handleSpinClick = () => {

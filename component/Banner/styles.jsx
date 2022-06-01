@@ -11,11 +11,11 @@ export const ImgLogo = styled.div`
     width: 70%;
   }
   @media (min-width: 1024px) and (max-width: 1899px) {
-    width: 500px;
+    width: 350px;
   }
 
   @media (min-width: 1900px) {
-    width: 700px;
+    width: 500px;
   }
-  margin-top: 50px;
+  margin-top: 20px;
 `;
