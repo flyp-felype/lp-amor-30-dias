@@ -38,17 +38,20 @@ function ItemProdutos({produto}) {
   return (
     <Container>
       <Header>
-        <TagOff>
+        {/* <TagOff>
           <Image src={Tag} style={{marginTop: 6}} quality={100} />
           <LabelTag>{produto.off}</LabelTag>
-        </TagOff>
+        </TagOff> */}
       </Header>
       <ImageProduto>
-        <TagFrete>
+        {/* <TagFrete>
           <Image src={Frete} quality={100} />{' '}
           <LabelTagFrete>{produto.frete}</LabelTagFrete>
-        </TagFrete>
-        <Image src={produto.image} quality={100} />
+        </TagFrete> */}
+        <img
+          src={`https://zema.com${produto.primaryFullImageURL}`}
+          style={{maxHeight: 200, maxWidth: '100%'}}
+        />
       </ImageProduto>
       <BoxDescricao>
         <HeaderDescricao>
@@ -63,27 +66,34 @@ function ItemProdutos({produto}) {
               display: 'flex',
               justifyContent: 'row',
             }}>
-            <Icon>
+            {/* <Icon>
               <Image src={Heart} layout={'responsive'} />
             </Icon>
             <Icon>
               <Image src={Share} layout={'responsive'} />
-            </Icon>
+            </Icon> */}
           </div>
         </HeaderDescricao>
-        <Title>{produto.title}</Title>
+        <Title>{produto.displayName}</Title>
         <Precos>
-          <PriceDiscount>
-            de <TracoDesconto>{produto.price}</TracoDesconto>
-          </PriceDiscount>
+          {produto.listPrice ? (
+            <PriceDiscount>
+              de{' '}
+              <TracoDesconto>
+                R${parseFloat(produto.listPrice).toFixed(2).replace('.', ',')}
+              </TracoDesconto>
+            </PriceDiscount>
+          ) : null}
           <PrecoDestaque>
-            <PrecoGrande>{produto.priceDiscount}</PrecoGrande>
+            <PrecoGrande>
+              R${parseFloat(produto.salePrice).toFixed(2).replace('.', ',')}
+            </PrecoGrande>
             <PriceDiscount> à vista</PriceDiscount>
           </PrecoDestaque>
           <PriceDiscount>{produto.dividido}</PriceDiscount>
         </Precos>
       </BoxDescricao>
-      <ButtonAdd>
+      <ButtonAdd href={`https://zema.com${produto.route}`} target="_blank">
         <IconBtn>
           <Image src={Bag} layout={'responsive'} />
         </IconBtn>

@@ -26,6 +26,7 @@ export const ContainerMobile = styled.div`
 `;
 export const Title = styled.h1`
   text-align: center;
+  line-height: 1.2;
   color: #fff;
   @media (min-width: 1024px) {
     font-size: ${px2vw(40)};

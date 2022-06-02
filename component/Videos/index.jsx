@@ -22,30 +22,92 @@ function Videos() {
       <VideoDesktop>
         <Carousel itemsToShow={3} showArrows={false}>
           <ImageVideo>
-            <Image src={YouTube} layout="responsive" />
+            <iframe
+              width="350"
+              height="260"
+              src="https://www.youtube.com/embed/wr_Qy4rkcx0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </ImageVideo>
 
           <ImageVideo>
-            <Image src={YouTube2} layout="responsive" />
+            <iframe
+              width="350"
+              height="260"
+              src="https://www.youtube.com/embed/nvLpt-ts32s"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </ImageVideo>
 
           <ImageVideo>
-            <Image src={YouTube3} layout="responsive" />
+            <iframe
+              width="350"
+              height="260"
+              src="https://www.youtube.com/embed/vcGuzYZFHOs"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </ImageVideo>
+          <ImageVideo>
+            <iframe
+              width="350"
+              height="260"
+              src="https://www.youtube.com/embed/hjbAKpnUzGU"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </ImageVideo>
         </Carousel>
       </VideoDesktop>
       <VideoMobile>
         <Carousel itemsToShow={1} showArrows={false}>
           <ImageVideo>
-            <Image src={YouTube} layout="responsive" />
+            <iframe
+              width="350"
+              height="260"
+              src="https://www.youtube.com/embed/wr_Qy4rkcx0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </ImageVideo>
 
           <ImageVideo>
-            <Image src={YouTube2} layout="responsive" />
+            <iframe
+              width="350"
+              height="260"
+              src="https://www.youtube.com/embed/nvLpt-ts32s"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </ImageVideo>
 
           <ImageVideo>
-            <Image src={YouTube3} layout="responsive" />
+            <iframe
+              width="350"
+              height="260"
+              src="https://www.youtube.com/embed/vcGuzYZFHOs"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </ImageVideo>
+          <ImageVideo>
+            <iframe
+              width="350"
+              height="260"
+              src="https://www.youtube.com/embed/hjbAKpnUzGU"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
           </ImageVideo>
         </Carousel>
       </VideoMobile>

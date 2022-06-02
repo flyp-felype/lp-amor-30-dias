@@ -3,9 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 247px;
   height: 480px;
-  -webkit-box-shadow: 0px 10px 13px -7px #000000,
-    5px 7px 22px 1px rgba(0, 0, 0, 0);
-  box-shadow: 0px 10px 13px -7px #000000, 5px 7px 22px 1px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.17);
+  box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.17);
   background-color: #fff;
   padding: 20px;
   margin-top: 10px;
@@ -45,7 +44,9 @@ export const LabelTagFrete = styled.span`
   font-weight: 600;
   vertical-align: text-top;
 `;
-export const ImageProduto = styled.div``;
+export const ImageProduto = styled.div`
+  height: 210px;
+`;
 
 export const TagFrete = styled.div`
   background-color: #7f11c8;
@@ -60,6 +61,7 @@ export const TagFrete = styled.div`
 `;
 export const BoxDescricao = styled.div`
   margin-top: 15px;
+  height: 170px;
 `;
 
 export const HeaderDescricao = styled.div`
@@ -102,8 +104,10 @@ export const PrecoGrande = styled.span`
   font-weight: bold;
 `;
 
-export const ButtonAdd = styled.button`
+export const ButtonAdd = styled.a`
   margin-top: 10px;
+  text-decoration: none;
+  bottom: 0;
   background-color: #dd1c61;
   border: none;
   width: 100%;

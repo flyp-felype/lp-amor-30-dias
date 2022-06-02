@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {
   Container,
@@ -11,13 +11,16 @@ import ItemProdutos from '../ItemProdutos';
 import Brastremp from '../../public/images/produtos/brastremp.png';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import Carousel from 'react-elastic-carousel';
+
+import ReactLoading from 'react-loading';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import axios from 'axios';
 
 import {Pagination, Scrollbar} from 'swiper';
-const produtos = [
+const produtosMock = [
   {
     off: '15% OFF',
     image: Brastremp,
@@ -140,9 +143,30 @@ const produtos = [
   },
 ];
 function Produtos() {
+  const [produtos, setProdutos] = useState([]);
+  const getProdutos = async () => {
+    axios.get(process.env.NEXT_PUBLIC__URL + 'produtos').then((response) => {
+      console.log(response.data.items);
+      setProdutos(response.data.items);
+    });
+  };
+  useEffect(() => {
+    getProdutos();
+  }, []);
   return (
     <Container id="produtos">
       <Title>Encontre o presente que tem a cara do benzinho</Title>
+
+      {produtos.length === 0 ? (
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
+          <ReactLoading
+            type={'spin'}
+            color={'#7f11c8'}
+            height={50}
+            width={50}
+          />
+        </div>
+      ) : null}
       <CarroselBig>
         <Carousel
           itemsToScroll={6}

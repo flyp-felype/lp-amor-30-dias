@@ -42,6 +42,7 @@ import EnviarCarta from '../../public/images/enviar-carta.png';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import px2vw from '../../utils/px2vw';
+import axios from 'axios';
 require('dayjs/locale/pt-br');
 
 const corpoCarta = `Escreva aqui sua carta...`;
@@ -49,6 +50,7 @@ function BoxCarta() {
   const [msgCart, setMsgCarta] = useState(corpoCarta);
 
   const [rNome, setRnome] = useState('');
+  const [rCidade, setRcidade] = useState('');
   const [rEndereco, setRendereco] = useState('');
   const [rBairro, setRbairro] = useState('');
   const [rCep, setRcep] = useState('');
@@ -57,6 +59,7 @@ function BoxCarta() {
   const [rEmail, setRemail] = useState('');
 
   const [dNome, setDnome] = useState('');
+  const [dCidade, setDcidade] = useState('');
   const [dEndereco, setDendereco] = useState('');
   const [dBairro, setDbairro] = useState('');
   const [dCep, setDcep] = useState('');
@@ -231,35 +234,84 @@ function BoxCarta() {
       });
       return;
     }
-    toast.success('Carta enviada com sucesso!', {
-      position: 'top-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-    setRemetente('');
-    setDestinatario('');
-    setMsgCarta(corpoCarta);
-    setRnome('');
-    setRendereco('');
-    setRbairro('');
-    setRcep('');
-    setRnumero('');
-    setRemail('');
-    setDnome('');
-    setDendereco('');
-    setDaceito(false);
-    setRaceito(false);
-    setDbairro('');
-    setDcep('');
-    setAceitocarta(false);
-    setcartaPreenchida(false);
-    setCartaFinalizada(true);
 
-    carta.current.scrollIntoView({behavior: 'smooth'});
+    const data = {
+      remetente: {
+        nome: rNome,
+        email: rEmail,
+        endereco: {
+          rua: rEndereco,
+          bairro: rBairro,
+          cidade: rCidade,
+          cep: rCep,
+        },
+        telefone: rTelefone,
+        opt_in: true,
+      },
+      destinatario: {
+        nome: dNome,
+        endereco: {
+          rua: dEndereco,
+          bairro: dBairro,
+          cidade: dCidade,
+          cep: dCep,
+        },
+      },
+      carta: {
+        remetente: remetente,
+        corpo: msgCart,
+        destinatario: destinatario,
+      },
+    };
+    axios
+      .post(process.env.NEXT_PUBLIC__URL + 'correioElegante', data, {
+        headers: {
+          'Content-type': 'Application/json',
+        },
+      })
+      .then((response) => {
+        toast.success('Carta enviada com sucesso!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        setRemetente('');
+        setDestinatario('');
+        setMsgCarta(corpoCarta);
+        setRnome('');
+        setRendereco('');
+        setRbairro('');
+        setRcep('');
+        setRnumero('');
+        setRemail('');
+        setDnome('');
+        setDendereco('');
+        setDaceito(false);
+        setRaceito(false);
+        setDbairro('');
+        setDcep('');
+        setAceitocarta(false);
+        setcartaPreenchida(false);
+        setCartaFinalizada(true);
+
+        carta.current.scrollIntoView({behavior: 'smooth'});
+      })
+      .catch((error) => {
+        toast.error('Erro ao enviar a carta! Favor tentar novamente', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
 
   const handleCarta = (event) => {
@@ -474,6 +526,12 @@ function BoxCarta() {
                       type="text"
                     />
                     <Input
+                      placeholder="Cidade"
+                      onChange={(e) => setRcidade(e.target.value)}
+                      value={rCidade}
+                      type="text"
+                    />
+                    <Input
                       placeholder="Endereço"
                       onChange={(e) => setRendereco(e.target.value)}
                       value={rEndereco}
@@ -552,6 +610,14 @@ function BoxCarta() {
                       placeholder="Nome"
                       onChange={(e) => setDnome(e.target.value)}
                       value={dNome}
+                      type="text"
+                      disabled={disableDest}
+                    />
+
+                    <Input
+                      placeholder="Cidade"
+                      onChange={(e) => setDcidade(e.target.value)}
+                      value={dCidade}
                       type="text"
                       disabled={disableDest}
                     />
