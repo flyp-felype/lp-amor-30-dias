@@ -27,6 +27,10 @@ export const ContainerClear = styled.div`
   flex-direction: column;
 `;
 
+export const Strong = styled.span`
+  font-weight: bold;
+`;
+
 export const CorpoRetorno = styled.div`
   @media (min-width: 1024px) {
     flex-wrap: nowrap;
@@ -184,6 +188,7 @@ export const ContainerButton = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const CheckBox = styled.div`
@@ -194,7 +199,7 @@ export const CheckBox = styled.div`
     font-size: ${px2vw(15)};
   }
   @media (max-width: 1023px) {
-    font-size: ${px2vw(30)};
+    font-size: ${px2vw(40)};
   }
 `;
 

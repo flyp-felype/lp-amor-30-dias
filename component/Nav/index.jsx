@@ -42,19 +42,16 @@ const menuMobile = [
 const socialMedia = [
   {
     icon: faFacebook,
-    link: '#',
+    link: 'https://www.facebook.com/zemapravc',
   },
-  {
-    icon: faTwitter,
-    link: '#',
-  },
+
   {
     icon: faInstagram,
-    link: '#',
+    link: 'https://www.instagram.com/zemapravc/',
   },
   {
     icon: faYoutube,
-    link: '#',
+    link: 'https://www.youtube.com/c/ZemaCanal',
   },
 ];
 function Nav() {

@@ -7,6 +7,9 @@ export const Container = styled.div`
     flex-wrap: nowrap;
     width: ${px2vw(1180)};
   }
+  @media (max-width: 1023px) {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.h2`
@@ -38,7 +41,6 @@ export const ImageVideo = styled.div`
   }
   @media (max-width: 1023px) {
     width: 100%;
-    height: 218px;
   }
 `;
 
@@ -59,6 +61,7 @@ export const VideoMobile = styled.div`
   }
   @media (max-width: 1023px) {
     display: none;
+    width: 100%;
   }
   @media (min-width: 1024px) {
     display: none;

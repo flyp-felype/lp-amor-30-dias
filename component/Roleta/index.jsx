@@ -83,11 +83,14 @@ function Roleta() {
     <Container>
       <Coluna>
         <Title>
-          Descubra os
+          Deu match! <br />
+          Descubra todas
+          <br /> combinações de signos!
+          {/* Descubra os
           <br />
           signos que combinam
           <br />
-          com o seu!
+          com o seu! */}
         </Title>
         <RoletaBig>
           <div

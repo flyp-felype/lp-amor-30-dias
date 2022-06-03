@@ -29,6 +29,7 @@ import {
   Box60,
   Box40,
   CorpoForm2,
+  Strong,
   BottonCarta,
 } from './styles';
 
@@ -45,7 +46,7 @@ import px2vw from '../../utils/px2vw';
 import axios from 'axios';
 require('dayjs/locale/pt-br');
 
-const corpoCarta = `Escreva aqui sua carta...`;
+const corpoCarta = '';
 function BoxCarta() {
   const [msgCart, setMsgCarta] = useState(corpoCarta);
 
@@ -394,7 +395,8 @@ function BoxCarta() {
             style={{
               fontFamily: 'Titillium Web, sans-serif;',
               textAlign: 'center',
-              fontSize: px2vw(20),
+              fontWeight: 'bold',
+              fontSize: px2vw(30),
               color: '#878787',
             }}>
             Escreva sua cartinha
@@ -403,13 +405,13 @@ function BoxCarta() {
             <BgImage>
               <Box>
                 <InputText
-                  id={'remetente'}
-                  label={'[remetente]'}
+                  id={'destinatario'}
+                  label={'[Escreva o nome do destinatário]'}
                   variant={'standard'}
-                  value={remetente}
+                  value={destinatario}
                   onChange={(e) => {
                     console.log(e);
-                    setRemetente(e.target.value);
+                    setDestinatario(e.target.value);
                   }}
                 />
               </Box>
@@ -430,12 +432,12 @@ function BoxCarta() {
                   paddingRight: 20,
                 }}>
                 <InputText
-                  id={'destinatário'}
-                  label={'[destinatário]'}
+                  id={'remetente'}
+                  label={'[Escreva o nome do remetente]'}
                   variant={'standard'}
-                  style={{width: 130}}
-                  value={destinatario}
-                  onChange={(e) => setDestinatario(e.target.value)}
+                  style={{width: 220}}
+                  value={remetente}
+                  onChange={(e) => setRemetente(e.target.value)}
                 />
                 <LabelData>,{dataAtual}</LabelData>
               </Box>
@@ -488,15 +490,23 @@ function BoxCarta() {
                 operação de envio.
               </label>
               <br />
+              <span style={{fontWeight: 'bold'}}>
+                [
+                <a
+                  href="https://www.zema.com/central-atendimento#1"
+                  target="_blank"
+                  style={{fontWeight: 'bold'}}>
+                  https://www.zema.com/central-atendimento#1
+                </a>
+                ]
+              </span>
               <br />
-              Leia a nossa política de privacidade no site [
-              <a
-                href="https://www.zema.com/central-atendimento#1"
-                target="_blank">
-                https://www.zema.com/central-atendimento#1
-              </a>
-              ]
+              Leia a nossa política de privacidade no site
             </CheckBox>
+            <br />
+            <Strong>
+              Caprichou na declaração? Você pode enviar apenas uma cartinha hein
+            </Strong>
             <ButtonFinalizar>
               <TextButtonFinalizar>Finalizar carta!</TextButtonFinalizar>
             </ButtonFinalizar>
@@ -674,7 +684,7 @@ function BoxCarta() {
                     <br />
                     <ButtonFinalizar disabled={disableDest}>
                       <TextButtonFinalizar>
-                        Confrmar e enviar
+                        Confirmar e enviar
                       </TextButtonFinalizar>
                     </ButtonFinalizar>
                   </form>

@@ -170,8 +170,9 @@ function Produtos() {
       <CarroselBig>
         <Carousel
           itemsToScroll={6}
-          showArrows={false}
+          showArrows={true}
           itemPosition={'START'}
+          pagination={false}
           itemsToShow={6}>
           {produtos.map((item, index) => {
             return <ItemProdutos produto={item}></ItemProdutos>;
@@ -179,14 +180,18 @@ function Produtos() {
         </Carousel>
       </CarroselBig>
       <CarroselDesktop>
-        <Carousel showArrows={false} itemPosition={'START'} itemsToShow={4}>
+        <Carousel
+          showArrows={true}
+          pagination={false}
+          itemPosition={'START'}
+          itemsToShow={4}>
           {produtos.map((item, index) => {
             return <ItemProdutos produto={item}></ItemProdutos>;
           })}
         </Carousel>
       </CarroselDesktop>
       <CarroselMobile>
-        <Carousel showArrows={false} itemsToShow={1}>
+        <Carousel showArrows={true} pagination={false} itemsToShow={1}>
           {produtos.map((item, index) => {
             return <ItemProdutos produto={item}></ItemProdutos>;
           })}

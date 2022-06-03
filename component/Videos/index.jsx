@@ -66,11 +66,10 @@ function Videos() {
         </Carousel>
       </VideoDesktop>
       <VideoMobile>
-        <Carousel itemsToShow={1} showArrows={false}>
+        <Carousel itemsToShow={1} showArrows={true}>
           <ImageVideo>
             <iframe
-              width="350"
-              height="260"
+              width="100%"
               src="https://www.youtube.com/embed/wr_Qy4rkcx0"
               title="YouTube video player"
               frameborder="0"
@@ -80,8 +79,7 @@ function Videos() {
 
           <ImageVideo>
             <iframe
-              width="350"
-              height="260"
+              width="100%"
               src="https://www.youtube.com/embed/nvLpt-ts32s"
               title="YouTube video player"
               frameborder="0"
@@ -91,8 +89,7 @@ function Videos() {
 
           <ImageVideo>
             <iframe
-              width="350"
-              height="260"
+              width="100%"
               src="https://www.youtube.com/embed/vcGuzYZFHOs"
               title="YouTube video player"
               frameborder="0"
@@ -101,8 +98,7 @@ function Videos() {
           </ImageVideo>
           <ImageVideo>
             <iframe
-              width="350"
-              height="260"
+              width="100%"
               src="https://www.youtube.com/embed/hjbAKpnUzGU"
               title="YouTube video player"
               frameborder="0"

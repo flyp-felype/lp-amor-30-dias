@@ -4,13 +4,15 @@ import px2vw from '../../utils/px2vw';
 export const Container = styled.div`
   display: flex;
   flex-directions: row;
-  margin-top: ${px2vw(40)};
-  margin-bottom: ${px2vw(40)};
   @media (min-width: 1024px) {
     display: flex;
+    margin-top: ${px2vw(20)};
+    margin-bottom: ${px2vw(2)};
   }
   @media (max-width: 1023px) {
     display: none;
+    margin-top: ${px2vw(40)};
+    margin-bottom: ${px2vw(40)};
   }
   justify-content: space-between;
 `;
