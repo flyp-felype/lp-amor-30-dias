@@ -42,7 +42,12 @@ function Carrousel() {
           {items.map((item) => (
             <SwiperSlide key={item.id} className="swiper-slide">
               <ItemImage>
-                <Image src={item.image} alt={item.title} />
+                <Image
+                  src={item.image}
+                  width={250}
+                  height={333}
+                  alt={item.title}
+                />
               </ItemImage>
             </SwiperSlide>
           ))}

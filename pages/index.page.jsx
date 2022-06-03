@@ -12,6 +12,8 @@ import {
   Footer,
   IntFooter,
   IconImage,
+  Desktop,
+  Mobile,
 } from './styles';
 import Banner from '../component/Banner';
 import Carrousel from '../component/Carrousel';
@@ -79,8 +81,13 @@ export default function Home() {
           <IconImage>
             <Image src={Footer1} />
           </IconImage>
+          <Mobile>
+            <Image width={100} height={14} src={LogoZema}></Image>
+          </Mobile>
+          <Desktop>
+            <Image src={LogoZema}></Image>
+          </Desktop>
 
-          <Image src={LogoZema}></Image>
           <IconImage>
             <Image src={Footer2}></Image>
           </IconImage>

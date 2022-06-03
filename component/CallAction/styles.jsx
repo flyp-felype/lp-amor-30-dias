@@ -52,9 +52,11 @@ export const ButtonCallAction = styled.a`
   font-weight: bold;
   @media (min-width: 1024px) {
     font-size: ${px2vw(25)};
+    display: block;
   }
   @media (max-width: 1023px) {
     font-size: ${px2vw(45)};
+    display: none;
   }
   &:hover {
     opacity: 0.8;
@@ -66,11 +68,53 @@ export const ButtonCallAction = styled.a`
   cursor: pointer;
 `;
 
+export const DivButtonMobile = styled.div`
+  margin-bottom: ${px2vw(50)};
+  margin-top: ${px2vw(50)};
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #ffcc00;
+  border-radius: 35px;
+  color: #52018a;
+  vertical-align: text-top;
+  width: 80%;
+  font-weight: bold;
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(25)};
+    display: none;
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(45)};
+    display: flex;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+  border: none;
+  cursor: pointer;
+`;
+export const ButtonCallActionMobile = styled.a`
+  text-decoration: none;
+  width: 100%;
+  padding-left: 40px;
+`;
+
 export const Text = styled.label`
   margin-left: 10px;
-  vertical-align: text-top;
-
   cursor: pointer;
+`;
+
+export const TextMobile = styled.label`
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: ${px2vw(50)};
+  padding-left: 20px;
+  vertical-align: text-top;
+  margin-top: -25px;
+  display: block;
 `;
 
 export const BlocoImage = styled.div`

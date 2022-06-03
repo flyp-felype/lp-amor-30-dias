@@ -135,7 +135,6 @@ function Roleta() {
         <RoletaSmall>
           <div
             style={{
-              marginLeft: 40,
               width: '20em',
               height: '20em',
               marginTop: '20px',

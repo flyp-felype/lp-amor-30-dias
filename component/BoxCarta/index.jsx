@@ -31,6 +31,7 @@ import {
   CorpoForm2,
   Strong,
   BottonCarta,
+  TitleMobile,
 } from './styles';
 
 import InputText from '../InputText';
@@ -389,6 +390,10 @@ function BoxCarta() {
         Já sabe o que falar? Escreva essa mensagem com carinho hein, pois
         lembre-se: Aqui começa uma grande história!
       </Title>
+      <TitleMobile>
+        Já sabe o que falar? Escreva essa mensagem com carinho hein, pois
+        lembre-se: Aqui começa uma grande história!
+      </TitleMobile>
       <Carta>
         <form onSubmit={handleCarta}>
           <p

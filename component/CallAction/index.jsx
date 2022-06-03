@@ -8,6 +8,9 @@ import {
   BlocoImage,
   Label,
   ContainerMobile,
+  ButtonCallActionMobile,
+  TextMobile,
+  DivButtonMobile,
 } from './styles';
 import Conquest from '../../public/images/conquest.png';
 import Surpreenda from '../../public/images/surpreenda.png';
@@ -64,17 +67,19 @@ function CallAction() {
             <br />
             Inicie um belo romance agora!
           </Title>
+          <DivButtonMobile>
+            <ButtonCallActionMobile href="#carta">
+              <Image
+                src={Vector}
+                width={20}
+                height={20}
+                alt="Botão Envie gratuitamente"
+              />
 
-          <ButtonCallAction>
-            <Image
-              src={Vector}
-              width={20}
-              height={20}
-              alt="Botão Envie gratuitamente"
-            />
+              <TextMobile>Envie gratuitamente sua cartinha!</TextMobile>
+            </ButtonCallActionMobile>
+          </DivButtonMobile>
 
-            <Text>Envie gratuitamente sua cartinha!</Text>
-          </ButtonCallAction>
           <Label>As cartas serão impressas e enviadas via Correios</Label>
         </div>
         <div style={{display: 'flex', flexDirection: 'row'}}>

@@ -42,7 +42,7 @@ export const ItemImage = styled.div`
 `;
 
 export const CarouselMobile = styled.div`
-  margin-top: 280px;
+  margin-top: 250px;
   @media (min-width: 1024px) {
     display: none;
   }

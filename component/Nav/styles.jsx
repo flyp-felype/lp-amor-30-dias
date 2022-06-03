@@ -20,6 +20,7 @@ export const Menu = styled.nav`
   margin-top: ${px2vw(40)};
   @media (min-width: 1024px) {
     flex-wrap: nowrap;
+    justify-content: center;
     width: ${px2vw(900)};
   }
 `;
@@ -33,7 +34,7 @@ export const ListMenu = styled.ul`
   margin: 0;
   padding: 0;
   @media only screen and (max-width: 1023px) {
-    justify-content: space-between;
+    justify-content: center;
   }
   @media only screen and (min-width: 1024px) {
     justify-content: space-between;
@@ -82,6 +83,7 @@ export const ItemsLinkMobile = styled.li`
   }
   @media (max-width: 1023px) {
     display: block;
+    margin-left: ${px2vw(50)};
   }
 `;
 

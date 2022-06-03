@@ -48,9 +48,25 @@ export const Title = styled.h1`
   color: #fff;
   @media (min-width: 1024px) {
     font-size: ${px2vw(30)};
+    display: block;
   }
   @media (max-width: 1023px) {
     font-size: ${px2vw(50)};
+    display: none;
+  }
+`;
+
+export const TitleMobile = styled.h1`
+  text-align: center;
+  color: #fff;
+  width: 80%;
+  @media (min-width: 1024px) {
+    font-size: ${px2vw(30)};
+    display: none;
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(50)};
+    display: block;
   }
 `;
 

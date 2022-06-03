@@ -112,3 +112,20 @@ export const IconImage = styled.div`
     display: none;
   }
 `;
+
+export const Mobile = styled.div`
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  @media (max-width: 1023px) {
+    display: block;
+  }
+`;
+export const Desktop = styled.div`
+  @media (min-width: 1024px) {
+    display: block;
+  }
+  @media (max-width: 1023px) {
+    display: none;
+  }
+`;
