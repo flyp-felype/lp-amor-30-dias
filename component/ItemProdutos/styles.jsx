@@ -132,4 +132,5 @@ export const IconBtn = styled.div`
   width: 13px;
   height: 15px;
   margin-right: 5px;
+  margin-top: 3px;
 `;

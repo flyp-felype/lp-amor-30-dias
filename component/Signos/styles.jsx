@@ -29,9 +29,11 @@ export const Title = styled.h3`
   font-weight: 300;
   @media (min-width: 1024px) {
     font-size: ${px2vw(35)};
+    margin-top: ${px2vw(10)};
   }
   @media (max-width: 1023px) {
     font-size: ${px2vw(110)};
+    margin-top: ${px2vw(30)};
   }
 
   color: #878787;
@@ -40,7 +42,7 @@ export const Title = styled.h3`
 `;
 
 export const IconSigno = styled.div`
-  width: 80px;
+  width: 60px;
   margin-right: ${px2vw(20)};
 `;
 
@@ -70,6 +72,8 @@ export const Combina = styled.span`
   font-weidht: 100;
   border-radius: 15px;
   padding-left: ${px2vw(20)};
+  align-self: center;
+  justify-content: center;
   text-align: center;
   width: auto;
   padding-right: ${px2vw(20)};
@@ -86,9 +90,9 @@ export const Combina = styled.span`
 export const SignoCombina = styled.div`
   display: flex;
   flex-direction: row;
+  text-align: center;
   align-self: center;
   margin-bottom: ${px2vw(15)};
-  width: 50%;
 `;
 
 export const IconCombina = styled.div`
@@ -105,15 +109,11 @@ export const SignosCombina = styled.div`
   display: flex;
   justify-content: center;
   align-self: center;
-  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
   margin-top: ${px2vw(40)};
-  flex-wrap: wrap;
-  @media (min-width: 1024px) {
-    width: 100%;
-  }
-  @media (max-width: 1023px) {
-    width: auto;
-  }
+  width: 100%;
 `;
 export const TextSigno = styled.text`
   color: #878787;

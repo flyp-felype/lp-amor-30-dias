@@ -88,13 +88,13 @@ function Nav() {
             {socialMedia.map((item, index) => {
               return (
                 <ItemsLink key={index} className="itemLink">
-                  <Link href={item.link}>
+                  <a href={item.link} target="_blank">
                     <ItemNenu>
                       <Circle>
                         <FontAwesomeIcon icon={item.icon} color={'#FFCC00'} />
                       </Circle>
                     </ItemNenu>
-                  </Link>
+                  </a>
                 </ItemsLink>
               );
             })}

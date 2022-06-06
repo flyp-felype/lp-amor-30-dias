@@ -272,47 +272,73 @@ function BoxCarta() {
         },
       })
       .then((response) => {
-        toast.success('Carta enviada com sucesso!', {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        console.log(response);
+        if (response.data.success === true) {
+          toast.success('Carta enviada com sucesso!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
 
-        setRemetente('');
-        setDestinatario('');
-        setMsgCarta(corpoCarta);
-        setRnome('');
-        setRendereco('');
-        setRbairro('');
-        setRcep('');
-        setRnumero('');
-        setRemail('');
-        setDnome('');
-        setDendereco('');
-        setDaceito(false);
-        setRaceito(false);
-        setDbairro('');
-        setDcep('');
-        setAceitocarta(false);
-        setcartaPreenchida(false);
-        setCartaFinalizada(true);
+          setRemetente('');
+          setDestinatario('');
+          setMsgCarta(corpoCarta);
+          setRnome('');
+          setRendereco('');
+          setRbairro('');
+          setRcep('');
+          setRnumero('');
+          setRemail('');
+          setDnome('');
+          setDendereco('');
+          setDaceito(false);
+          setRaceito(false);
+          setDbairro('');
+          setDcep('');
+          setAceitocarta(false);
+          setcartaPreenchida(false);
+          setCartaFinalizada(true);
 
-        carta.current.scrollIntoView({behavior: 'smooth'});
+          carta.current.scrollIntoView({behavior: 'smooth'});
+        } else {
+          toast.error(response.data.mensagem, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
       })
       .catch((error) => {
-        toast.error('Erro ao enviar a carta! Favor tentar novamente', {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        console.log(error.response);
+        if (error.response.data.mensagem) {
+          toast.error(error.response.data.mensagem, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          toast.error('Erro ao enviar a carta! Favor tentar novamente', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
       });
   };
 

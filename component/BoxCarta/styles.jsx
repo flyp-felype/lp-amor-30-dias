@@ -29,6 +29,7 @@ export const ContainerClear = styled.div`
 
 export const Strong = styled.span`
   font-weight: bold;
+  color: #878787;
 `;
 
 export const CorpoRetorno = styled.div`

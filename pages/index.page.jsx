@@ -64,8 +64,7 @@ export default function Home() {
             justifyContent: 'center',
           }}>
           <Traco />
-          <div
-            style={{position: 'absolute', marginTop: -53, marginRight: -450}}>
+          <div style={{position: 'absolute', marginTop: -53}}>
             <Image src={Estrela} />
           </div>
         </div>
