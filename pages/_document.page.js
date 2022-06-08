@@ -1,5 +1,6 @@
 import Document, {Html, Head, Main, NextScript} from 'next/document';
 
+import Script from 'next/script';
 class MyDocument extends Document {
   static getInitialProps({renderPage}) {
     // Returns an object like: { html, head, errorHtml, chunks, styles }
@@ -9,6 +10,20 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-MR3MCYDLPT"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-MR3MCYDLPT');
+        `}
+          </Script>
+
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
