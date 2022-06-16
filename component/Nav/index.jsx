@@ -64,7 +64,7 @@ function Nav() {
           </LogoDiv>
         </Items>
 
-        {menu.map((item, index) => {
+        {/* {menu.map((item, index) => {
           return (
             <ItemsLink key={index} className="itemLink">
               <Link href={item.link}>
@@ -72,7 +72,7 @@ function Nav() {
               </Link>
             </ItemsLink>
           );
-        })}
+        })} */}
         {menuMobile.map((item, index) => {
           return (
             <ItemsLinkMobile key={index} className="itemLink">
@@ -83,7 +83,7 @@ function Nav() {
           );
         })}
 
-        <Items>
+        {/* <Items>
           <Social>
             {socialMedia.map((item, index) => {
               return (
@@ -99,7 +99,7 @@ function Nav() {
               );
             })}
           </Social>
-        </Items>
+        </Items> */}
       </ListMenu>
     </Menu>
   );

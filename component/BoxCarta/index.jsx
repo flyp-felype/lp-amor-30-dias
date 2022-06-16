@@ -32,6 +32,10 @@ import {
   Strong,
   BottonCarta,
   TitleMobile,
+  Options,
+  Radio,
+  LabelRadio,
+  ItemRadio,
 } from './styles';
 
 import InputText from '../InputText';
@@ -44,10 +48,48 @@ import EnviarCarta from '../../public/images/enviar-carta.png';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import px2vw from '../../utils/px2vw';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faDownload} from '@fortawesome/free-solid-svg-icons';
+import ZemaINstagram from '../../public/images/zemaInstagram.png';
 import axios from 'axios';
 require('dayjs/locale/pt-br');
 
-const corpoCarta = '';
+const corpoCarta = `[Escreva o nome do destinatário]\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 
+[Escreva o nome do remetente], ${dayjs()
+  .locale('pt-br')
+  .format('DD [de] MMMM [de] YYYY')}`;
+
+const msgCrush = `[Escreva o nome do destinatário] \n
+Oii, razão dos meus sorrisos bobos e pensamentos mais bobos, rs.o] \n
+Resolvi subir o nível das indiretas e ir direto para fase da conquista. Essa cartinha serve como uma forma de demonstrar aquilo que sinto por você de forma mais direta e nada clichê. Aliás, como ser clichê quando falo de você?o] \n
+Andei te observando e acho que você tem todos os requisitos para ser o amor da minha vida, hein!o] \n
+Quando penso em nós dois, sinto um misto de sensações, e para falar a verdade... só você me faz vivenciar isso. De tudo o que eu pensava que fosse acontecer comigo, certamente encontrar alguém como você não estava nos meus planos.o] \n
+Como explicar que com você tudo é mais colorido e divertido? Não sei dizer, somente sinto. Também não posso afirmar se é amor ou paixão, só sei que é bom demaaaais sentir isso!o] \n
+Sem mais promessas e juras de amor, só tenho mais uma coisa a dizer: Ainda não sei tudo sobre você, mas tenho uma vida inteira para saber.o] \n
+PS: saudades do que a gente não viveu ainda... \n \n
+[Escreva o nome do remetente], ${dayjs()
+  .locale('pt-br')
+  .format('DD [de] MMMM [de] YYYY')}`;
+
+const msgNamoro = `[Escreva o nome do destinatário] \n
+Ei, você sabia que meu ponto fraco tem nome, endereço e um sorriso lindo? Agora você entende o porquê dessa cartinha ter chegado para você! \n
+Costumam dizer que o amor deixa a gente meio bobo e incerto das coisas. Mas de uma coisa tenho certeza, escolhi a pessoa certa para amar. \n
+Toda vez que eu te vejo é como se fosse a primeira vez. O sentimento, o frio na barriga... ahhh, como é bom ter isso comigo toda vez em que te olho! \n
+Quando nossos caminhos se cruzaram eu não tinha noção do efeito que é ter você na minha vida. Os dias ao seu lado passam rapidamente e tudo o que fazemos juntos me dá mais vontade de estar contigo. Encontrei em você uma companhia diferente de todas as outras: alguém que me entende e que me ama do jeito que eu sou. E não podemos negar, a nossa conexão é de outro mundo! \n
+Que nosso amor seja eterno enquanto dure toda eternidade...eu te amo muito! \n \n
+[Escreva o nome do remetente], ${dayjs()
+  .locale('pt-br')
+  .format('DD [de] MMMM [de] YYYY')}`;
+
+const msgAmizade = `[Escreva o nome do destinatário] \n
+Ei!\n
+Sabe aquele tipo de pessoa que topa tudo? Desde tocar a campainha da casa de alguém e sair correndo, até a assaltar um um banco as 3:00H da manhã? Posso dizer que encontrei essa pessoa em você!\n
+É engraçado parar pra pensar como tem pessoas que encaixam de forma exata na vida da gente! Nossa ligação é assim: conseguimos entender tudo o que outro sente com um simples olhar! Essa amizade me traz as melhores memórias, aquelas que quando estivermos bem velhinhos, vamos contar para os nossos netos as melhooores vivências (exceto algumas, se é que me entende) hahaha - Cada diferença, cada piada, cada semelhança, cada conselho, cada desentendimento, uma amizade de se guardar para toda vida!\n
+Obrigada (o) por fazer parte de vários dos meus melhores momentos que, com certeza, não seriam o mesmo sem você!\n \n
+[Escreva o nome do remetente], ${dayjs()
+  .locale('pt-br')
+  .format('DD [de] MMMM [de] YYYY')}`;
+
 function BoxCarta() {
   const [msgCart, setMsgCarta] = useState(corpoCarta);
 
@@ -79,12 +121,12 @@ function BoxCarta() {
 
   const [cartaFinalizada, setCartaFinalizada] = useState(false);
 
+  const [crush, setCrush] = useState(false);
+  const [namoro, setNamoro] = useState(false);
+  const [amizade, setAmizade] = useState(false);
   const [disableDest, setDisableDest] = useState(true);
   const cadastro = useRef(null);
   const carta = useRef(null);
-  useEffect(() => {
-    setDataAtual(dayjs().locale('pt-br').format('DD [de] MMMM [de] YYYY'));
-  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -260,9 +302,7 @@ function BoxCarta() {
         },
       },
       carta: {
-        remetente: remetente,
         corpo: msgCart,
-        destinatario: destinatario,
       },
     };
     axios
@@ -345,42 +385,6 @@ function BoxCarta() {
   const handleCarta = (event) => {
     event.preventDefault();
 
-    if (remetente === '') {
-      toast.error('É preciso preencher o remetente', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return;
-    }
-    if (destinatario === '') {
-      toast.error('É preciso preencher o destinatário', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return;
-    }
-    if (msgCart === corpoCarta) {
-      toast.error('É preciso preencher a carta', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return;
-    }
     if (aceitoCarta === false) {
       toast.error('É preciso aceitar os termos de compromisso', {
         position: 'top-right',
@@ -428,13 +432,57 @@ function BoxCarta() {
               textAlign: 'center',
               fontWeight: 'bold',
               fontSize: px2vw(30),
-              color: '#878787',
+              color: '#52018A',
             }}>
-            Escreva sua cartinha
+            ESCREVA SUA CARTINHA
           </p>
+          <Options>
+            <ItemRadio>
+              <Radio
+                type="radio"
+                value={crush}
+                checked={crush}
+                onChange={() => {
+                  setCrush(true);
+                  setNamoro(false);
+                  setAmizade(false);
+                  setMsgCarta(msgCrush);
+                }}
+              />
+              <LabelRadio>CRUSH</LabelRadio>
+            </ItemRadio>
+            <ItemRadio>
+              <Radio
+                type="radio"
+                value={namoro}
+                checked={namoro}
+                onChange={() => {
+                  setCrush(false);
+                  setNamoro(true);
+                  setAmizade(false);
+                  setMsgCarta(msgAmizade);
+                }}
+              />
+              <LabelRadio>NAMORO</LabelRadio>
+            </ItemRadio>
+            <ItemRadio>
+              <Radio
+                type="radio"
+                value={amizade}
+                checked={amizade}
+                onChange={() => {
+                  setCrush(false);
+                  setNamoro(false);
+                  setAmizade(true);
+                  setMsgCarta(msgNamoro);
+                }}
+              />
+              <LabelRadio>AMIZADE</LabelRadio>
+            </ItemRadio>
+          </Options>
           <CartaInterior>
             <BgImage>
-              <Box>
+              {/* <Box>
                 <InputText
                   id={'destinatario'}
                   label={'[Escreva o nome do destinatário]'}
@@ -445,33 +493,17 @@ function BoxCarta() {
                     setDestinatario(e.target.value);
                   }}
                 />
-              </Box>
+              </Box> */}
               <Box>
                 <TextArea
                   name="textarea"
                   cols="33"
                   value={msgCart}
-                  onChange={(value) =>
-                    setMsgCarta(value.target.value)
-                  }></TextArea>
+                  onChange={(value) => setMsgCarta(value.target.value)}>
+                  {msgCart}
+                </TextArea>
               </Box>
-              <Box
-                style={{
-                  float: 'right',
-                  display: 'flex',
-                  justifyContent: 'flex-end',
-                  paddingRight: 20,
-                }}>
-                <InputText
-                  id={'remetente'}
-                  label={'[Escreva o nome do remetente]'}
-                  variant={'standard'}
-                  style={{width: 220}}
-                  value={remetente}
-                  onChange={(e) => setRemetente(e.target.value)}
-                />
-                <LabelData>,{dataAtual}</LabelData>
-              </Box>
+
               <div ref={carta}>
                 {cartaFinalizada ? (
                   <>
@@ -497,6 +529,36 @@ function BoxCarta() {
                       </GifFooter>
                       <Cupons />
                     </BoxFooter>
+                    <div
+                      style={{
+                        width: '100%',
+                        marginTop: 50,
+                        display: 'flex',
+                        justifyContent: 'center',
+                      }}>
+                      <div
+                        style={{
+                          textAlign: 'center',
+                          marginRight: 20,
+                          fontFamily: 'Patrick Hand, cursive',
+                          fontSize: 20,
+                          color: '#222222',
+                          float: 'left',
+                        }}>
+                        Sua cartinha chegou e você amou? Vai ser bom demais se
+                        você
+                        <br />
+                        postar uma foto com ela e marcar a gente:
+                      </div>
+                      <div style={{height: 32, marginTop: 10}}>
+                        <Image
+                          src={ZemaINstagram}
+                          alt="instagram Zema"
+                          width={140}
+                          height={32}
+                        />
+                      </div>
+                    </div>
                   </>
                 ) : null}
               </div>
@@ -520,24 +582,22 @@ function BoxCarta() {
                 mensagem ofensiva para o destinatário e/ou envolvidos na
                 operação de envio.
               </label>
-              <br />
-              <span style={{fontWeight: 'bold'}}>
-                [
-                <a
-                  href="https://www.zema.com/central-atendimento#1"
-                  target="_blank"
-                  style={{fontWeight: 'bold'}}>
-                  https://www.zema.com/central-atendimento#1
-                </a>
-                ]
-              </span>
-              <br />
-              Leia a nossa política de privacidade no site
+              <br /> <br />
+              Leia nossa{' '}
+              <a
+                href="https://www.zema.com/central-atendimento#1"
+                target="_blank"
+                style={{
+                  fontWeight: 'bold',
+                  color: '#DF1179',
+                  textDecoration: 'none',
+                }}>
+                Política de Privacidade{' '}
+                <FontAwesomeIcon icon={faDownload} color={'#52018A'} />
+              </a>
             </CheckBox>
             <br />
-            <Strong>
-              Caprichou na declaração? Você pode enviar apenas uma cartinha hein
-            </Strong>
+
             <ButtonFinalizar>
               <TextButtonFinalizar>Finalizar carta!</TextButtonFinalizar>
             </ButtonFinalizar>

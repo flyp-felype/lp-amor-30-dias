@@ -87,7 +87,7 @@ export const Carta = styled.div`
   background-color: #fff;
   z-index: 999;
   border-radius: ${px2vw(15)};
-  padding: ${px2vw(20)} ${px2vw(50)} ${px2vw(50)} ${px2vw(50)};
+  padding: ${px2vw(10)} ${px2vw(50)} ${px2vw(50)} ${px2vw(50)};
   margin-top: ${px2vw(20)};
   @media (min-width: 1024px) {
     max-width: ${px2vw(1000)};
@@ -100,7 +100,7 @@ export const BgImage = styled.div`
   width: 100%;
   height: 100%;
   background-image: url(${BgCartaz.src});
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   background-size: contain;
 `;
 export const CartaInterior = styled.div`
@@ -118,7 +118,6 @@ export const Traco = styled.div`
 export const TextArea = styled.textarea`
   width: 100%;
   border: none;
-  height: auto;
   overflow: hidden;
   color: #666666;
   @media (min-width: 1024px) {
@@ -348,4 +347,43 @@ export const BottonCarta = styled.div`
   }
 
   z-index: 9;
+`;
+
+export const Options = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+`;
+
+export const Radio = styled.input`
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  border: 1px solid #df1179;
+  &:checked {
+    background-color: #df1179;
+  }
+  &:after {
+    background-color: #df1179;
+  }
+`;
+
+export const LabelRadio = styled.span`
+  color: #9e9e9e;
+  font-weight: bold;
+  font-size: ${px2vw(20)};
+  margin-left: 5px;
+  vertical-align: text-bottom;
+`;
+
+export const ItemRadio = styled.label`
+  margin-left: 20px;
+  margin-right: 20px;
 `;

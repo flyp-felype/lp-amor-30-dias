@@ -20,6 +20,7 @@ export const Title = styled.h2`
   color: #878787;
   line-height: 1.2;
   margin: 0px;
+  font-family: 'Titillium Web', sans-serif;
   @media (min-width: 1024px) and (max-width: 1989px) {
     font-size: ${px2vw(30)};
     padding-right: ${px2vw(130)};
@@ -181,5 +182,16 @@ export const FlagSmall = styled.div`
 
   @media (min-width: 1900px) {
     display: none;
+  }
+`;
+
+export const Deumatch = styled.span`
+  color: #52018a;
+  font-weight: 720 !important;
+  @media (min-width: 1024px) and (max-width: 1989px) {
+    font-size: ${px2vw(40)};
+  }
+  @media (max-width: 1023px) {
+    font-size: ${px2vw(90)};
   }
 `;

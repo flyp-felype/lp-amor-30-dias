@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import px2vw from '../../utils/px2vw';
 export const ItemNenu = styled.a`
-  color: #fff !important;
+  color: #ffcc00 !important;
   cursor: pointer;
   font-family: 'Titillium Web', sans-serif;
   font-weight: bold;
@@ -10,9 +10,6 @@ export const ItemNenu = styled.a`
   }
   @media (max-width: 1023px) {
     font-size: ${px2vw(48)};
-  }
-  &:hover {
-    text-decoration: underline;
   }
 `;
 
@@ -33,12 +30,7 @@ export const ListMenu = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-  @media only screen and (max-width: 1023px) {
-    justify-content: center;
-  }
-  @media only screen and (min-width: 1024px) {
-    justify-content: space-between;
-  }
+  justify-content: center;
 `;
 
 export const Items = styled.li`
@@ -46,8 +38,6 @@ export const Items = styled.li`
 `;
 
 export const ItemsLink = styled.li`
-  padding-top: ${px2vw(10)};
-
   flex-wrap: nowrap;
   @media only screen and (max-width: 1024px) {
     display: none;
@@ -78,12 +68,24 @@ export const Social = styled.ul`
 
 export const ItemsLinkMobile = styled.li`
   flex-wrap: nowrap;
-  @media (min-width: 1024px) {
-    display: none;
-  }
   @media (max-width: 1023px) {
-    display: block;
-    margin-left: ${px2vw(50)};
+    padding-top: 3px;
+  }
+  @media (min-width: 1024px) {
+    padding-top: 8px;
+  }
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  vertical-align: middle;
+  color: #ffcc00;
+  background-color: #dd1c61;
+  border-radius: 10px;
+  display: block;
+  margin-left: ${px2vw(50)};
+  &:hover {
+    background-color: #fa3b7f;
+    cursor: pointer;
   }
 `;
 

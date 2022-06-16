@@ -9,6 +9,7 @@ import {
   RoletaNormal,
   RoletaBig,
   RoletaSmall,
+  Deumatch,
 } from './styles';
 import Signos from '../Signos';
 import {getRandomInt} from '../../utils/rolete';
@@ -83,9 +84,9 @@ function Roleta() {
     <Container>
       <Coluna>
         <Title>
-          Deu match! <br />
-          Descubra todas
-          <br /> combinações de signos!
+          <Deumatch>DEU MATCH!</Deumatch>
+          <br />
+          Descubra todas combinações <br /> de signos!
           {/* Descubra os
           <br />
           signos que combinam
