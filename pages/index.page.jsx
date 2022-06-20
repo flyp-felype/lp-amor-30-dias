@@ -1,3 +1,4 @@
+import React, {useEffect} from 'react';
 import Nav from '../component/Nav';
 import {
   Container,
@@ -15,7 +16,9 @@ import {
   Desktop,
   Mobile,
 } from './styles';
+import Script from 'next/script';
 import Banner from '../component/Banner';
+import Analytics from '../component/Analytics';
 import Carrousel from '../component/Carrousel';
 import CallAction from '../component/CallAction';
 import BoxCarta from '../component/BoxCarta';
@@ -24,14 +27,42 @@ import Roleta from '../component/Roleta';
 import Image from 'next/image';
 import Estrela from '../public/images/estrela.png';
 import Videos from '../component/Videos';
-
+import {useRouter} from 'next/router';
 import Footer1 from '../public/images/footer1.png';
 import Footer2 from '../public/images/footer2.png';
 import LogoZema from '../public/images/logofooter.png';
-
+import * as gtag from '../utils/gtag';
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
+  useEffect(() => {
+    gtag.pageview('/');
+  }, []);
   return (
     <>
+      <div className="container">
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'G-46P3997TN6', 'auto');
+          ga('send', 'pageview');
+        `}
+        </Script>
+      </div>
       <ContainerBG>
         <Container>
           <main>
@@ -112,6 +143,7 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
+      <Analytics />
     </>
   );
 }

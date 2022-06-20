@@ -1,11 +1,14 @@
 import Document, {Html, Head, Main, NextScript} from 'next/document';
 
 import Script from 'next/script';
+import Analytics from '../component/Analytics';
+import * as gtag from '../utils/gtag';
 class MyDocument extends Document {
   static getInitialProps({renderPage}) {
     // Returns an object like: { html, head, errorHtml, chunks, styles }
     return renderPage();
   }
+
   render() {
     return (
       <Html lang="en">
@@ -13,24 +16,6 @@ class MyDocument extends Document {
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-MR3MCYDLPT"
             strategy="afterInteractive"
-          />
-
-          <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=$G-MR3MCYDLPT`}
-          />
-          <Script
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-MR3MCYDLPT', {
-              page_path: window.location.pathname,
-            });
-          `,
-            }}
           />
 
           <link rel="preconnect" href="https://fonts.googleapis.com" />
