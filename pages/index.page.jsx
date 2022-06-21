@@ -32,7 +32,16 @@ import Footer1 from '../public/images/footer1.png';
 import Footer2 from '../public/images/footer2.png';
 import LogoZema from '../public/images/logofooter.png';
 import * as gtag from '../utils/gtag';
+import TagManager from 'react-gtm-module';
 export default function Home() {
+  const tagManagerArgs = {
+    gtmId: 'GTM-TZ6MTVK',
+  };
+
+  if (process.browser) {
+    TagManager.initialize(tagManagerArgs);
+  }
+
   const router = useRouter();
 
   useEffect(() => {
