@@ -52,6 +52,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
 import ZemaINstagram from '../../public/images/zemaInstagram.png';
 import axios from 'axios';
+
+import * as gtag from '../../utils/gtag';
 require('dayjs/locale/pt-br');
 
 const corpoCarta = `[Escreva o nome do destinatário]\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 
@@ -214,6 +216,8 @@ function BoxCarta() {
       });
       return;
     }
+
+    gtag.event('remetente-preenchido', 'carta', '', 2);
     setDisableDest(false);
   };
   const handleSubmitDestinatario = (event) => {
@@ -324,6 +328,7 @@ function BoxCarta() {
             progress: undefined,
           });
 
+          gtag.event('carta-finalizada', 'carta', '', 3);
           setRemetente('');
           setDestinatario('');
           setMsgCarta(corpoCarta);
@@ -398,6 +403,8 @@ function BoxCarta() {
       return;
     }
     setcartaPreenchida(true);
+
+    gtag.event('carta-preenchida', 'carta', '', 1);
     cadastro.current.scrollIntoView({behavior: 'smooth'});
   };
 
