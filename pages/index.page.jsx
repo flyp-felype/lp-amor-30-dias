@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Nav from '../component/Nav';
 import {
   Container,
@@ -32,8 +32,11 @@ import Footer1 from '../public/images/footer1.png';
 import Footer2 from '../public/images/footer2.png';
 import LogoZema from '../public/images/logofooter.png';
 import * as gtag from '../utils/gtag';
+import axios from 'axios';
+
 import TagManager from 'react-gtm-module';
 export default function Home() {
+  const [carta, setCarta] = useState();
   const tagManagerArgs = {
     gtmId: 'GTM-TZ6MTVK',
   };
@@ -43,6 +46,25 @@ export default function Home() {
   }
 
   const router = useRouter();
+  const {id} = router.query;
+
+  useEffect(() => {
+    console.log('id ', id);
+    if (id) {
+      axios
+        .get(`${process.env.NEXT_PUBLIC__URL}carta?id=${id}`, {
+          headers: {
+            'Content-type': 'Application/json',
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          if (response.data) {
+            setCarta(response.data);
+          }
+        });
+    }
+  }, [id]);
 
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -72,7 +94,7 @@ export default function Home() {
         `}
         </Script>
       </div>
-      <ContainerBG>
+      {/* <ContainerBG>
         <Container>
           <main>
             <Nav></Nav>
@@ -82,20 +104,20 @@ export default function Home() {
             </Body>
           </main>
         </Container>
-      </ContainerBG>
+      </ContainerBG> */}
 
-      <CallAction />
+      {/* <CallAction /> */}
 
       <Container>
-        <BoxCarta />
+        <BoxCarta cartaId={carta} id={id} />
       </Container>
-      <ContainerClear>
+      {/* <ContainerClear>
         <Traco />
         <Corpo>
           <Roleta />
         </Corpo>
-      </ContainerClear>
-      <ContainerSecondeClear>
+      </ContainerClear> */}
+      {/* <ContainerSecondeClear>
         <div
           style={{
             marginBottom: 40,
@@ -113,9 +135,9 @@ export default function Home() {
         </Corpo>
         <Traco />
         <Videos></Videos>
-      </ContainerSecondeClear>
+      </ContainerSecondeClear> */}
 
-      <Footer>
+      {/* <Footer>
         <IntFooter>
           <IconImage>
             <Image src={Footer1} />
@@ -131,7 +153,7 @@ export default function Home() {
             <Image src={Footer2}></Image>
           </IconImage>
         </IntFooter>
-      </Footer>
+      </Footer> */}
       <style jsx global>{`
         html,
         body {

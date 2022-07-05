@@ -92,7 +92,7 @@ Obrigada (o) por fazer parte de vários dos meus melhores momentos que, com cert
   .locale('pt-br')
   .format('DD [de] MMMM [de] YYYY')}`;
 
-function BoxCarta() {
+function BoxCarta({cartaId, id}) {
   const [msgCart, setMsgCarta] = useState(corpoCarta);
 
   const [rNome, setRnome] = useState('');
@@ -116,7 +116,7 @@ function BoxCarta() {
   const [aceitoCarta, setAceitocarta] = useState(false);
   const [destinatario, setDestinatario] = useState('');
 
-  const [cartaPreenchida, setcartaPreenchida] = useState(false);
+  const [cartaPreenchida, setcartaPreenchida] = useState(true);
 
   const [rAceito, setRaceito] = useState(false);
   const [dAceito, setDaceito] = useState(false);
@@ -129,6 +129,35 @@ function BoxCarta() {
   const [disableDest, setDisableDest] = useState(true);
   const cadastro = useRef(null);
   const carta = useRef(null);
+  const numero = useRef(null);
+
+  useEffect(() => {
+    console.log('CARTA ', cartaId);
+    if (cartaId) {
+      setRemetente(cartaId.carta.remetente ? cartaId.carta.remetente : '');
+      setDestinatario(
+        cartaId.carta.destinatario ? cartaId.carta.destinatario : '',
+      );
+      setMsgCarta(cartaId.carta.corpo);
+      setRnome(cartaId.remetente.nome);
+      setRendereco(cartaId.remetente.endereco.rua);
+      setRbairro(cartaId.remetente.endereco.bairro);
+      setRcep(cartaId.remetente.endereco.cep);
+      setRnumero();
+      setRemail(cartaId.remetente.email);
+      setDnome(cartaId.destinatario.nome);
+      setDendereco(cartaId.destinatario.endereco.rua);
+      setDcep(cartaId.destinatario.endereco.cep);
+      setDbairro(cartaId.destinatario.endereco.bairro);
+      setDcidade(cartaId.destinatario.endereco.cidade);
+      setRcidade(cartaId.remetente.endereco.cidade);
+      setDnumero(cartaId.destinatario.endereco.n);
+      setRnumero(cartaId.remetente.endereco.n);
+      setDaceito(true);
+      setRaceito(true);
+      numero.current.focus();
+    }
+  }, [cartaId]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -258,7 +287,19 @@ function BoxCarta() {
       });
       return;
     }
-    if (dNumero === '') {
+    if (dNumero === '' || !dNumero) {
+      toast.error('Número do remetente é obrigatório', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (rNumero === '' || !rNumero) {
       toast.error('Número do destinatário é obrigatório', {
         position: 'top-right',
         autoClose: 5000,
@@ -284,6 +325,7 @@ function BoxCarta() {
     }
 
     const data = {
+      _id: id,
       remetente: {
         nome: rNome,
         email: rEmail,
@@ -311,8 +353,9 @@ function BoxCarta() {
         corpo: msgCart,
       },
     };
+    console.log(data);
     axios
-      .post(process.env.NEXT_PUBLIC__URL + 'correioElegante', data, {
+      .post(process.env.NEXT_PUBLIC__URL + 'update', data, {
         headers: {
           'Content-type': 'Application/json',
         },
@@ -331,26 +374,6 @@ function BoxCarta() {
           });
 
           gtag.event('carta-finalizada', 'carta', '', 3);
-          setRemetente('');
-          setDestinatario('');
-          setMsgCarta(corpoCarta);
-          setRnome('');
-          setRendereco('');
-          setRbairro('');
-          setRcep('');
-          setRnumero('');
-          setRemail('');
-          setDnome('');
-          setDendereco('');
-          setDaceito(false);
-          setRaceito(false);
-          setDbairro('');
-          setDcep('');
-          setAceitocarta(false);
-          setcartaPreenchida(false);
-          setCartaFinalizada(true);
-
-          carta.current.scrollIntoView({behavior: 'smooth'});
         } else {
           toast.error(response.data.mensagem, {
             position: 'top-right',
@@ -425,14 +448,14 @@ function BoxCarta() {
       />
       {/* Same as */}
       <ToastContainer />
-      <Title>
+      {/* <Title>
         Já sabe o que falar? Escreva essa mensagem com carinho hein, pois
         lembre-se: Aqui começa uma grande história!
       </Title>
       <TitleMobile>
         Já sabe o que falar? Escreva essa mensagem com carinho hein, pois
         lembre-se: Aqui começa uma grande história!
-      </TitleMobile>
+      </TitleMobile> */}
       <Carta>
         <form onSubmit={handleCarta}>
           <p
@@ -443,9 +466,9 @@ function BoxCarta() {
               fontSize: px2vw(30),
               color: '#52018A',
             }}>
-            ESCREVA SUA CARTINHA
+            SUA CARTINHA
           </p>
-          <Options>
+          {/* <Options>
             <ItemRadio>
               <Radio
                 type="radio"
@@ -488,7 +511,7 @@ function BoxCarta() {
               />
               <LabelRadio>AMIZADE</LabelRadio>
             </ItemRadio>
-          </Options>
+          </Options> */}
           <CartaInterior>
             <BgImage>
               {/* <Box>
@@ -505,6 +528,7 @@ function BoxCarta() {
               </Box> */}
               <Box>
                 <TextArea
+                  disabled={disableDest}
                   name="textarea"
                   cols="33"
                   value={msgCart}
@@ -606,10 +630,10 @@ function BoxCarta() {
               </a>
             </CheckBox>
             <br />
-
+            {/* 
             <ButtonFinalizar>
               <TextButtonFinalizar>Finalizar carta!</TextButtonFinalizar>
-            </ButtonFinalizar>
+            </ButtonFinalizar> */}
           </ContainerButton>
         </form>
       </Carta>
@@ -633,6 +657,7 @@ function BoxCarta() {
                       placeholder="Nome"
                       onChange={(e) => setRnome(e.target.value)}
                       value={rNome}
+                      disabled={disableDest}
                       type="text"
                     />
                     <Input
@@ -640,11 +665,13 @@ function BoxCarta() {
                       onChange={(e) => setRcidade(e.target.value)}
                       value={rCidade}
                       type="text"
+                      disabled={disableDest}
                     />
                     <Input
                       placeholder="Endereço"
                       onChange={(e) => setRendereco(e.target.value)}
                       value={rEndereco}
+                      disabled={disableDest}
                       type="text"
                     />
                     <Row>
@@ -653,6 +680,7 @@ function BoxCarta() {
                           placeholder="Bairro"
                           onChange={(e) => setRbairro(e.target.value)}
                           value={rBairro}
+                          disabled={disableDest}
                           type="text"
                         />
                       </Box60>
@@ -661,6 +689,7 @@ function BoxCarta() {
                           placeholder="CEP"
                           onChange={(e) => setRcep(e.target.value)}
                           value={rCep}
+                          disabled={disableDest}
                           type="text"
                         />
                       </Box40>
@@ -671,6 +700,7 @@ function BoxCarta() {
                           placeholder="Número"
                           onChange={(e) => setRnumero(e.target.value)}
                           value={rNumero}
+                          ref={numero}
                           type="number"
                         />
                       </Box40>
@@ -679,6 +709,7 @@ function BoxCarta() {
                           placeholder="Telefone (DDD + Número)"
                           onChange={(e) => setRtelefone(e.target.value)}
                           value={rTelefone}
+                          disabled={disableDest}
                           type="tel"
                         />
                       </Box60>
@@ -687,6 +718,7 @@ function BoxCarta() {
                       placeholder="E-mail"
                       onChange={(e) => setRemail(e.target.value)}
                       value={rEmail}
+                      disabled={disableDest}
                       type="email"
                     />
                     <input
@@ -705,9 +737,9 @@ function BoxCarta() {
                       divulgação da Zema.
                     </label>
                     <br />
-                    <ButtonFinalizar>
+                    {/* <ButtonFinalizar>
                       <TextButtonFinalizar>Continuar</TextButtonFinalizar>
-                    </ButtonFinalizar>
+                    </ButtonFinalizar> */}
                   </form>
                 </CorpoForm>
                 <CorpoForm2>
@@ -754,7 +786,6 @@ function BoxCarta() {
                           onChange={(e) => setDnumero(e.target.value)}
                           value={dNumero}
                           type="number"
-                          disabled={disableDest}
                         />
                       </Box40>
                     </Row>
@@ -782,10 +813,8 @@ function BoxCarta() {
                       publicitários.
                     </label>
                     <br />
-                    <ButtonFinalizar disabled={disableDest}>
-                      <TextButtonFinalizar>
-                        Confirmar e enviar
-                      </TextButtonFinalizar>
+                    <ButtonFinalizar>
+                      <TextButtonFinalizar>Enviar</TextButtonFinalizar>
                     </ButtonFinalizar>
                   </form>
                 </CorpoForm2>
