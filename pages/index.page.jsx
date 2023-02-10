@@ -94,7 +94,7 @@ export default function Home() {
         `}
         </Script>
       </div>
-      {/* <ContainerBG>
+      <ContainerBG>
         <Container>
           <main>
             <Nav></Nav>
@@ -104,20 +104,20 @@ export default function Home() {
             </Body>
           </main>
         </Container>
-      </ContainerBG> */}
+      </ContainerBG>
 
-      {/* <CallAction /> */}
+      <CallAction />
 
       <Container>
         <BoxCarta cartaId={carta} id={id} />
       </Container>
-      {/* <ContainerClear>
+      <ContainerClear>
         <Traco />
         <Corpo>
           <Roleta />
         </Corpo>
-      </ContainerClear> */}
-      {/* <ContainerSecondeClear>
+      </ContainerClear>
+      <ContainerSecondeClear>
         <div
           style={{
             marginBottom: 40,
@@ -135,9 +135,9 @@ export default function Home() {
         </Corpo>
         <Traco />
         <Videos></Videos>
-      </ContainerSecondeClear> */}
+      </ContainerSecondeClear>
 
-      {/* <Footer>
+      <Footer>
         <IntFooter>
           <IconImage>
             <Image src={Footer1} />
@@ -153,7 +153,7 @@ export default function Home() {
             <Image src={Footer2}></Image>
           </IconImage>
         </IntFooter>
-      </Footer> */}
+      </Footer>
       <style jsx global>{`
         html,
         body {
